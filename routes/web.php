@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\SettingsController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,3 +22,6 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/welcome', [App\Http\Controllers\HomeController::class, 'main'])->name('welcome');
+// SETTINGS
+Route::get('settings',[SettingsController::class, 'index'])->name('settings')->middleware('auth');
+Route::post('settings',[SettingsController::class, 'store'])->name('settings.store')->middleware('auth');
