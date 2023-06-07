@@ -38,7 +38,7 @@
                         <!-- Authentication Links -->
                         @guest
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('welcome') }}">Principal</a>
+                            <a class="nav-link" href="/">Principal</a>
                             
                         </li>
                             {{-- @if (Route::has('login'))
