@@ -4,7 +4,7 @@
 <div class="container-fluid">
     
     <div class="row">
-      <div class="col-3">
+      <div class="col-3 p-0">
         @if (Auth::check())
         {{-- SIDEBAR --}}
         @include('components.sidebar')

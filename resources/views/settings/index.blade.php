@@ -5,7 +5,7 @@
 @section('content')
     <div class="container-fluid">
         <div class="row ">
-            <div class="col-2 fixed-left">
+            <div class="col-2 p-0">
                 <aside>
                     @if (Auth::check())
                         {{-- SIDEBAR --}}
@@ -34,7 +34,7 @@
                         </ul>
                         <div class="card-body">
                             <div class="tab-content" id="nav-tabContent">
-                                <div class="tab-pane fade show " id="nav-home" role="tabpanel"
+                                <div class="tab-pane fade show active" id="nav-home" role="tabpanel"
                                     aria-labelledby="nav_profile_tab">
                                     <div class="tab-pane active">
                                         @if ($errors->any())
@@ -148,7 +148,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="tab-pane fade show active" id="nav-profile" role="tabpanel"
+                                <div class="tab-pane fade show"active id="nav-profile" role="tabpanel"
                                     aria-labelledby="nav_user_tab">
                                     <div class="container-fluid">
                                         <div class="row">

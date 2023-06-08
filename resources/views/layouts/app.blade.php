@@ -27,7 +27,7 @@
                 </a> --}}
                 <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="./">
                     <span>
-                        <img src="{{ asset('storage/uploads/logo.jpg') }}" height="50" width="200" alt="{{ config('app.name') }}">
+                        <img src="{{ asset('storage/uploads/logo.jpg') }}" height="50" width="200" alt="{{ config('app.name', 'Laravel') }}">
                         {{-- <img src="{{ asset('storage/uploads/logo.jpg') }}" height="50" width="200" alt="{{ config('app.name', 'Laravel') }}"> --}}
                     </span>
                 </a>
