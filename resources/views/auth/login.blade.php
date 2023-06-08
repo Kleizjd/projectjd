@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="container py-4 h-100">
-        <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="row d-flex justify-content-center py-4 px-4  align-items-center h-100">
             <div class="col-lg-12 col-xl-11">
                 <div class="card text-black" style="border-radius: 25px;">
                     <div class="card-body">
@@ -81,8 +81,8 @@
         </div>
     </div>
    
-    <div
-        class="d-flex flex-column flex-md-row text-center text-md-start justify-content-between py-4 px-4 px-xl-5 bg-primary">
+  <footer class="footer fixed-bottom">
+    <div class="d-flex flex-column flex-md-row text-center text-md-start justify-content-between py-3 px-3 px-xl-5 bg-primary">
         <!-- Copyright -->
         <div class="text-white mb-3 mb-md-0">
             Copyright © 2020. All rights reserved.
@@ -106,4 +106,6 @@
         </div>
         <!-- Right -->
     </div>
+  </footer>
+
 @endsection

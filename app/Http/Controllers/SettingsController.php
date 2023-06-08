@@ -18,10 +18,8 @@ class SettingsController extends Controller
      */
     public function index()
     {
-        // return view('settings.config');
-        // $users = User::all();
-        // return view('settings.index', ['users' => $users]);
-        return view('settings.index');
+        $users = User::all();
+        return view('settings.index', ['users' => $users]);
     }
 
     /**

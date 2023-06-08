@@ -3,6 +3,8 @@
 namespace Database\Seeders;
 
 use App\Models\User;
+use App\Models\Image;
+
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -20,6 +22,6 @@ class UserSeeder extends Seeder
             'email' => 'jose.jdgo97@gmail.com',
             'password' => bcrypt('12345678')
         ]);
-        User::factory(50)->create();
+        $users = User::factory(50)->create();
     }
 }
