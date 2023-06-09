@@ -49,8 +49,15 @@ class HomeController extends Controller
             $nombre =  time() . "_" . $file->getClientOriginalName();
             $imagenes = $file->storeAs('public/uploads', $nombre);
             $url = Storage::url($imagenes);
-            File::create(['url' => $url]);
-            $user->photo = $url;
+            // File::create(['url' => $url]);
+            if($user->image->url){
+                unlink(public_path().$user->image->url);
+              
+                $user->image->update([ 'url' => $url]);
+            } else {
+                $user->image()->create([ 'url' => $url]);
+            }
+            $user->image->url = $url;
         }
         $user->save();
         return back()->with('message', 'Profile Updated');

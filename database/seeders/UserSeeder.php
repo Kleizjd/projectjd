@@ -23,5 +23,11 @@ class UserSeeder extends Seeder
             'password' => bcrypt('12345678')
         ]);
         $users = User::factory(50)->create();
+
+        foreach($users as $user){
+            Image::factory(1)->create([
+                'imageable_id' => $user->id,
+                'imageable_type' => User::class]);
+        }
     }
 }

@@ -12,6 +12,11 @@ class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
 
+    // Relacion uno a uno Polimorfica
+    public function image()
+    {
+        return $this->morphOne(Image::class, 'imageable');
+    }
     /**
      * The attributes that are mass assignable.
      *

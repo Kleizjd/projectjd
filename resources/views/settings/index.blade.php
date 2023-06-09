@@ -77,12 +77,12 @@
                                                         <div
                                                             class="img__wrap border btn btn-outline-white d-flex justify-content-center">
                                                             <label for="photo">
-                                                                <?php if (!empty(Auth::user()->photo)) : ?>
+                                                                <?php if (!empty(Auth::user()->image->url)) : ?>
                                                                 <i class="far fa-edit img__description">Cambiar</i>
                                                                 <div
                                                                     class="img__wrap border border-dark btn btn-outline-white d-flex justify-content-center">
                                                                     <img class="img-responsive" id="img_preview"
-                                                                        src="{{ asset(Auth::user()->photo) }}"
+                                                                        src="{{ asset(Auth::user()->image->url) }}"
                                                                         height="190" width="190">
                                                                 </div>
                                                                 <?php else : ?>
