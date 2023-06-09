@@ -3,9 +3,10 @@
 @section('title', 'Springfield News')
 
 @section('content')
+
     <div class="container-fluid">
         <div class="row ">
-            <div class="col-2 p-0">
+            <div class="col-3 p-0">
                 <aside>
                     @if (Auth::check())
                         {{-- SIDEBAR --}}
@@ -15,7 +16,7 @@
                 </aside>
             </div>
             <div class="col-9">
-                <main>
+                <main style="margin-top:80px">
                     <div class="card shadow-lg mt-2">
                         <div class="badge bg-dark card-header">
                             <div class="row">
@@ -89,7 +90,7 @@
                                                                 <div
                                                                     class="img__wrap border border-dark btn btn-outline-white d-flex justify-content-center">
                                                                     <img class="img-responsive" id="img_preview"
-                                                                        src="{{ asset('storage/svg/upload-user.svg') }}"
+                                                                        src="{{ asset('image/user_profile.png') }}"
                                                                         height="190" width="190">
                                                                 </div>
                                                                 <?php endif; ?>

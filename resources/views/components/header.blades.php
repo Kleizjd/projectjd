@@ -39,7 +39,7 @@
                             <img src="{{ asset(Auth::user()->photo) }}" id="perfil2" alt="user" class="img-circle"
                                 width="60">
                         @else
-                            <img src="{{ asset('storage/svg/upload-user.svg') }}" alt="user" class="img-circle"
+                            <img src="{{ asset('images/upload-user.svg') }}" alt="user" class="img-circle"
                                 width="60">
                         @endif
 
@@ -52,7 +52,7 @@
                                     <img src="{{ asset(Auth::user()->photo) }}" id="perfil2" alt="user"
                                         class="img-circle" width="60">
                                 @else
-                                    <img src="{{ asset('storage/svg/upload-user.svg') }}" alt="user" class="img-circle"
+                                    <img src="{{ asset('images/upload-user.svg') }}" alt="user" class="img-circle"
                                         width="60">
                                 @endif
                             </a>

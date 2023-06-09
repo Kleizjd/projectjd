@@ -65,7 +65,7 @@
                                         <label for="photo2">
                                             <div class="img__wrap border border-dark btn btn-outline-white d-flex justify-content-center">
                                                 <img class="img-responsive" id="img_preview2"
-                                                    src="{{ asset('storage/svg/upload-user.svg') }}" height="190"
+                                                    src="{{ asset('images/user_profile.png') }}" height="190"
                                                     width="190">
                                             </div>
                                         </label>

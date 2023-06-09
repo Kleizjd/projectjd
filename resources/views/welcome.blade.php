@@ -99,8 +99,8 @@
 
                         <div class="container">
                             <div class="carousel-caption text-start">
-                                <h1>Example headline.</h1>
-                                <p>Some representative placeholder content for the first slide of the carousel.</p>
+                                <h1>{{ $new->name}}</h1>
+                                <p>{{ $new->body}}</p>
                                 <p><a class="btn btn-lg btn-primary" href="#">Sign up today</a></p>
                             </div>
                         </div>

@@ -20,7 +20,7 @@
 
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-dark bg-dark shadow-sm p-0 py-3 px-3">
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark shadow-sm p-0 fixed-top">
             <div class="container-fluid">
                 {{-- <a class="navbar-brand" href="{{ url('/') }}">
                     {{ config('app.name', 'Laravel') }}
@@ -74,7 +74,7 @@
                                     @else
                                     <img src="{{ asset('images/user_profile.png') }}" alt="user"
                                     class="img-circle" width="60">
-                                        {{-- <img src="{{ asset('storage/svg/upload-user.svg') }}" alt="user" class="img-circle" width="60"> --}}
+                                        {{-- <img src="{{ asset('images/user_profile.png') }}" alt="user" class="img-circle" width="60"> --}}
                                     @endif
                                     {{ Auth::user()->name }}
                                 </a>
