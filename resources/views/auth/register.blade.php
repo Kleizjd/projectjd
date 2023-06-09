@@ -3,7 +3,7 @@
 @section('content')
     <link rel="stylesheet" href="css/signup.css">
 
-    <div class="container py-4 h-100">
+    <div class="container h-100">
         <div class="row d-flex justify-content-center align-items-center h-100">
             <div class="col-lg-12 col-xl-11">
                 <div class="card text-black" style="border-radius: 25px;">
@@ -13,11 +13,12 @@
 
                                 <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Inscribirse</p>
 
-                                <form class="mx-1 mx-md-4" method="POST" action="{{ route('register') }}" autocomplete="off">
-                                   @csrf
+                                <form class="mx-1 mx-md-4" method="POST" action="{{ route('register') }}"
+                                    autocomplete="off">
+                                    @csrf
                                     <div class="d-flex flex-row align-items-center mb-4">
                                         <i class="fas fa-user fa-lg me-3 fa-fw"></i>
-                          
+
                                         <div class="form-outline flex-fill mb-0">
                                             <input id="name" type="text"
                                                 class="form-control @error('name') is-invalid @enderror" name="name"
@@ -71,10 +72,10 @@
                                         <i class="fas fa-key fa-lg me-3 fa-fw"></i>
                                         <div class="form-outline flex-fill mb-0">
 
-                                                <input id="password-confirm" type="password" class="form-control"
-                                                    name="password_confirmation" required autocomplete="new-password">
-                                                <label class="form-label" for="password_confirmation">Contraseña</label>
-                                                {{-- <label for="password-confirm" class="col-md-4 col-form-label text-md-end">{{ __('Confirm Password') }}</label> --}}
+                                            <input id="password-confirm" type="password" class="form-control"
+                                                name="password_confirmation" required autocomplete="new-password">
+                                            <label class="form-label" for="password_confirmation">Contraseña</label>
+                                            {{-- <label for="password-confirm" class="col-md-4 col-form-label text-md-end">{{ __('Confirm Password') }}</label> --}}
 
                                         </div>
                                     </div>
@@ -83,8 +84,9 @@
                                             id="form2Example3c" />
                                         <label class="form-check-label" for="form2Example3">
                                             Acepto todas las declaraciones en <a href="#!"> Términos de servicio </a>
-                                        </label> 
+                                        </label>
                                     </div>
+                              
                                     <div class="d-flex flex-row align-items-center mb-4">
                                         <i class="fas fa-key fa-lg me-3 fa-fw"></i>
                                         <div class="form-outline flex-fill mb-0">
@@ -93,6 +95,10 @@
                                                     <button type="reset" class="btn btn-light btn-lg">Reset</button>
                                                     <button type="submit"
                                                         class="btn btn-warning btn-lg ms-2">Registrarme</button>
+                                                        @if (Route::has('login'))
+                    
+                                                            <a style="color: #393f81;" class="p-3" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                                    @endif
                                                     {{-- <button type="submit" class="btn btn-primary">{{ __('Register') }}</button> --}}
                                                 </div>
                                             </div>

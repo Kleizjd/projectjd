@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\BreakingNew;
 use App\Models\Category;
 use App\Models\File;
+use App\Models\Image;
 use App\Models\News;
 use App\Models\Post;
 use Illuminate\Http\Request;
@@ -20,7 +20,8 @@ class NewsController extends Controller
      */
     public function index()
     {
-        $news = Post::all();
+        $news = Image::all();
+        // $news = Post::all();
         // dd($news);
         return view('welcome', compact('news'));
         // $categories = Category::all();

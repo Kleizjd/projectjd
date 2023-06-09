@@ -69,7 +69,8 @@ return [
     |
     */
 
-    'timezone' => 'UTC',
+    // 'timezone' => 'UTC',
+    'timezone' => 'America/Bogota',
 
     /*
     |--------------------------------------------------------------------------
@@ -82,6 +83,7 @@ return [
     |
     */
 
+    // 'locale' => 'en',
     'locale' => 'en',
 
     /*
@@ -95,7 +97,8 @@ return [
     |
     */
 
-    'fallback_locale' => 'en',
+    // 'fallback_locale' => 'en',
+    'fallback_locale' => 'es_CO',
 
     /*
     |--------------------------------------------------------------------------

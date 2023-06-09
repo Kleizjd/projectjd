@@ -27,7 +27,8 @@
                 </a> --}}
                 <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="./">
                     <span>
-                        <img src="{{ asset('storage/uploads/logo.jpg') }}" height="50" width="200" alt="{{ config('app.name', 'Laravel') }}">
+                        <img src="{{ asset('images/logo.png') }}" height="50" width="200"
+                            alt="{{ config('app.name', 'Laravel') }}">
                         {{-- <img src="{{ asset('storage/uploads/logo.jpg') }}" height="50" width="200" alt="{{ config('app.name', 'Laravel') }}"> --}}
                     </span>
                 </a>
@@ -71,8 +72,8 @@
                                         <img src="{{ asset(Auth::user()->photo) }}" id="perfil2" alt="user"
                                             class="img-circle" width="60">
                                     @else
-                                        <img src="{{ asset('storage/svg/upload_user.svg') }}" alt="user"
-                                            class="img-circle" width="60">
+                                    <img src="{{ asset('images/user_profile.png') }}" alt="user"
+                                    class="img-circle" width="60">
                                         {{-- <img src="{{ asset('storage/svg/upload-user.svg') }}" alt="user" class="img-circle" width="60"> --}}
                                     @endif
                                     {{ Auth::user()->name }}
@@ -85,8 +86,8 @@
                                                 <img src="{{ asset(Auth::user()->photo) }}" id="perfil2" alt="user"
                                                     class="img-circle" width="60">
                                             @else
-                                                <img src="{{ asset('storage/svg/upload-user.svg') }}" alt="user" class="img-circle"
-                                                    width="60">
+                                                <img src="{{ asset('images/user_profile.png') }}" alt="user"
+                                                    class="img-circle" width="60">
                                             @endif
                                         </a>
                                         <div class="m-l-10">
