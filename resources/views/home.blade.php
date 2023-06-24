@@ -4,14 +4,14 @@
 <div class="container-fluid">
     
     <div class="row">
-      <div class="col-3 p-0">
+      <div class="col-md-3 p-0 bg-dark text-white">
         @if (Auth::check())
         {{-- SIDEBAR --}}
         @include('components.sidebar')
         {{-- FIN SIDEBAR --}}
         @endif
       </div>
-      <div class="col-9">
+      <div class="col-md-9">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-md-8">

@@ -11,44 +11,20 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 
-class NewsController extends Controller
+class PostsController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
-        $news = Image::all();
-        // $news = Post::all();
-        // dd($news);
+        $news = Image::select('*')->where('imageable_type', '=', 'App\Models\Post')->get();
         return view('welcome', compact('news'));
-        // $categories = Category::all();
-        // return view('news.index', ['categories' => $categories]);
     }
-    // public function index()
-    // {
-    //     $categories = Category::all();
-    //     return view('news.index', ['categories' => $categories]);
-    // }
+    // public function index(){$categories = Category::all();return view('news.index', ['categories' => $categories]);}
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
         //
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
         $request->validate(['foto' => 'required|image|max:2048', 'category_id'=>'required']);
@@ -69,12 +45,6 @@ class NewsController extends Controller
         return redirect()->route('news')->with('success', 'New Created succesfully');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function main()
     {
         $news = DB::table('breaking_news')
@@ -85,38 +55,27 @@ class NewsController extends Controller
     }
     public function show($id)
     {
-   
+        // $this->authorize('published', $post);
+            // $similares = Post::where('category_id', $post->category_id)
+            //                         ->where('status', 2)
+            //                         ->where('id', '!=',$post->id)
+            //                         ->latest('id')
+            //                         ->take(4)
+            //                         ->get();
+            // return view('posts.show', compact('post', 'similares'));
+        // return $post;
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit($id)
     {
         //
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, $id)
     {
         //
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function destroy($id)
     {
         //

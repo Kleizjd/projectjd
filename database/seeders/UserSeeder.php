@@ -22,7 +22,7 @@ class UserSeeder extends Seeder
             'email' => 'jose.jdgo97@gmail.com',
             'password' => bcrypt('12345678')
         ]);
-        $users = User::factory(50)->create();
+        $users = User::factory(2)->create();
 
         foreach($users as $user){
             Image::factory(1)->create([

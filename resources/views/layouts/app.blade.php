@@ -20,18 +20,13 @@
 
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-dark bg-dark shadow-sm p-0 fixed-top">
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+
             <div class="container-fluid">
-                {{-- <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
-                </a> --}}
-                <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="./">
-                    <span>
-                        <img src="{{ asset('images/logo.png') }}" height="50" width="200"
-                            alt="{{ config('app.name', 'Laravel') }}">
-                        {{-- <img src="{{ asset('storage/uploads/logo.jpg') }}" height="50" width="200" alt="{{ config('app.name', 'Laravel') }}"> --}}
-                    </span>
-                </a>
+                <span class="navbar-brand" href="#">
+                    <img src="{{ asset('images/logo.png') }}" height="50" width="200"
+                        alt="{{ config('app.name', 'Laravel') }}">
+                </span>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                     aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
@@ -39,42 +34,26 @@
                 </button>
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav me-auto">
+                    <!-- Left Side Navbar -->
+                    {{-- <ul class="navbar-nav me-auto"></ul> --}}
 
-                    </ul>
-
-                    <!-- Right Side Of Navbar -->
+                    <!-- Right Side Navbar -->
                     <ul class="navbar-nav ms-auto">
                         <!-- Authentication Links -->
                         @guest
                             <li class="nav-item">
                                 <a class="nav-link" href="/">Principal</a>
-
                             </li>
-                            {{-- @if (Route::has('login'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                                </li>
-                            @endif
-
-                            @if (Route::has('register'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                                </li>
-                            @endif --}}
                         @else
-                            <li class="nav-item dropdown">
-
+                            ' <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
                                     data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     @if (!empty(Auth::user()->photo))
                                         <img src="{{ asset(Auth::user()->photo) }}" id="perfil2" alt="user"
-                                            class="img-circle" width="60">
+                                            class="img-circle" width="30">
                                     @else
-                                    <img src="{{ asset('images/user_profile.png') }}" alt="user"
-                                    class="img-circle" width="60">
-                                        {{-- <img src="{{ asset('images/user_profile.png') }}" alt="user" class="img-circle" width="60"> --}}
+                                        <img src="{{ asset('images/user_profile.png') }}" alt="user" class="img-circle"
+                                            width="30">
                                     @endif
                                     {{ Auth::user()->name }}
                                 </a>
@@ -99,21 +78,25 @@
                                                      document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
                                     </a>
-
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                         @csrf
                                     </form>
                                 </div>
-                            </li>
+                            </li>'
                         @endguest
                     </ul>
                 </div>
+
             </div>
         </nav>
 
-        <main>
-            @yield('content')
-        </main>
+    </div>
+
+
+       <main class=" p-0 m-0 border-0">
+
+        @yield('content')
+    </main>
     </div>
 </body>
 
