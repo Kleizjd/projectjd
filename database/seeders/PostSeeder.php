@@ -12,11 +12,12 @@ class PostSeeder extends Seeder
     
     public function run()
     {
-        $posts = Post::factory(3)->create();
+        $posts = Post::factory(8)->create();
         foreach($posts as $post){
             Image::factory(1)->create([
                 'imageable_id' => $post->id,
-                'imageable_type' => Post::class]);
+                'imageable_type' => Post::class,
+                'identifier' => '2']);
             $post->tags()->attach([
                 rand(1,4),//1 etiqueta al azar
                 rand(5,8) //2 etiqueta al azar

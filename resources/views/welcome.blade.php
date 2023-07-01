@@ -7,7 +7,7 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.84.0">
-    <title>Springfield News</title>
+    <title>Springfield posts</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/carousel/">
 
@@ -91,23 +91,20 @@
     <main>
 
         <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
-            <div class="carousel-indicators">
+            {{-- <div class="carousel-indicators">
+                @foreach ($posts as $post)
                 <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active"
-                    aria-current="true" aria-label="Slide 1"></button>
-                <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
-            </div>
+                    aria-current="@if ($loop->first) true @else '' @endif" aria-label="Slide {{ $loop->iteration }}"></button>
+                @endforeach
+            </div> --}}
             <div class="carousel-inner">
-                @foreach ($news as $new)
-                    {{-- <div class="carousel-item {{ $loop->first == 0 ? 'active' : '' }}"> --}}
+                @foreach ($posts as $post)
                     <div class="carousel-item @if ($loop->first) active @else '' @endif">
-                        <img src="{{ $new->url }}" alt="" srcset="">
+                        <img src="{{ $image->url }}" alt="" srcset="">
 
                         <div class="container">
                             <div class="carousel-caption text-start">
-                                <h1>{{ $new->name }}</h1>
-                                <p>{{ $new->body }}</p>
-                                <p><a class="btn btn-lg btn-primary" href="{{ route('login') }}">Sign up today</a></p>
+                                <p><a class="btn btn-lg btn-primary" href="{{ route('posts.show', $post) }}" >{{ $post->name }}</a></p>
                             </div>
                         </div>
                     </div>
@@ -126,12 +123,8 @@
         <!-- FOOTER -->
         <footer class="container">
             <p class="float-end"><a href="#">Back to top</a></p>
-            <p>&copy; 1997–<?= date('Y') ?> Company, Inc. &middot; <a href="#">Privacy</a> &middot; <a
-                    href="#">Terms</a></p>
+            <p>&copy; 1997–<?= date('Y') ?> Company, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
         </footer>
     </main>
-
-
 </body>
-
 </html>
