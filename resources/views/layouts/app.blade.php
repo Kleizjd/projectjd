@@ -13,6 +13,11 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
+    {{-- <link rel="stylesheet" href="node_modules/@fortawesome/fontawesome-free/css/all.min.css"> --}}
+        <!-- Enlazar archivo CSS -->
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+    <!-- Enlazar archivo JS -->
+    <script src="{{ asset('js/app.js') }}"></script>
 
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
@@ -52,7 +57,7 @@
                                         <img src="{{ asset(Auth::user()->photo) }}" id="perfil2" alt="user"
                                             class="img-circle" width="30">
                                     @else
-                                        <img src="{{ asset('images/user_profile.png') }}" alt="user" class="img-circle"
+                                        <img src="{{ asset('images/users/user_profile.png') }}" alt="user" class="img-circle"
                                             width="30">
                                     @endif
                                     {{ Auth::user()->name }}
@@ -60,12 +65,12 @@
 
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                                     <div class="d-flex no-block align-items-center p-15 bg-dark text-white m-b-10">
-                                        <a href="{{ route('settings') }}">
+                                        {{-- <a href="{{ route('settings') }}"> --}}
                                             @if (!empty(Auth::user()->photo))
                                                 <img src="{{ asset(Auth::user()->photo) }}" id="perfil2" alt="user"
                                                     class="img-circle" width="60">
                                             @else
-                                                <img src="{{ asset('images/user_profile.png') }}" alt="user"
+                                                <img src="{{ asset('images/users/user_profile.png') }}" alt="user"
                                                     class="img-circle" width="60">
                                             @endif
                                         </a>

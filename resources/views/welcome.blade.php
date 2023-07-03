@@ -100,11 +100,11 @@
             <div class="carousel-inner">
                 @foreach ($posts as $post)
                     <div class="carousel-item @if ($loop->first) active @else '' @endif">
-                        <img src="{{ $image->url }}" alt="" srcset="">
+                        <img src="{{ $post->url }}" alt="" srcset="">
 
                         <div class="container">
                             <div class="carousel-caption text-start">
-                                <p><a class="btn btn-lg btn-primary" href="{{ route('posts.show', $post) }}" >{{ $post->name }}</a></p>
+                                <p><a class="btn btn-lg btn-primary" href="{{ route('posts.show', $post) }}" >Ver Noticia</a></p>
                             </div>
                         </div>
                     </div>

@@ -9,23 +9,24 @@ use App\Models\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Database\Query\Builderl;
 
 class PostController extends Controller
 {
     public function index()
     {
+        // $posts = Image::select('*')->where('imageable_type', '=', 'App\Models\Post')->latest('id')->paginate(3);
         $cant_post = 3;
-        $image = Image::select('*')->where('imageable_type', '=', 'App\Models\Post')->latest('id')->paginate(3);
-        // // NO FUNCIONA, PERO DEBERIA
-        // $sql = $image->toSql();
-        // echo $sql;
-        // $posts = Post::all()->latest('id')->paginate(3);
-        // return view('welcome', compact('image', 'posts'));
+        $posts = Post::select('*')
+            ->join('images', 'posts.id', '=', 'images.imageable_id')
+            ->where('imageable_type', '=', 'App\Models\Post')->get(); //selecciona imagenes
+
+        return view('welcome', compact('posts'));
     }
     // public function index(){$categories = Category::all();return view('news.index', ['categories' => $categories]);}
     public function show(Post $post)
     {
-        dd($post);
+        // dd($post);
         // $this->authorize('published', $post);
         // $similares = Post::where('category_id', $post->category_id)
         //                         ->where('status', 2)
@@ -34,7 +35,7 @@ class PostController extends Controller
         //                         ->take(4)
         //                         ->get();
         // return view('posts.show', compact('post', 'similares'));
-        return $post;
+        return view('posts.show');
     }
 
     public function edit($id)

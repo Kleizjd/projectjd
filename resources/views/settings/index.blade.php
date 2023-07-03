@@ -88,7 +88,7 @@
                                                             <div
                                                                 class="img__wrap border border-dark btn btn-outline-white d-flex justify-content-center">
                                                                 <img class="img-responsive" id="img_preview"
-                                                                    src="{{ asset('image/user_profile.png') }}"
+                                                                    src="{{ asset('image/users/user_profile.png') }}"
                                                                     height="190" width="190">
                                                             </div>
                                                             <?php endif; ?>
