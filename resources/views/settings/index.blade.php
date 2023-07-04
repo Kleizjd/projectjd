@@ -221,13 +221,11 @@
                                                             </td>
                                                             <td>
                                                                 {{-- <form action="{{ route('user.edit', $user->id) }}" method="POST"> --}}
-
-                                                                <a href="#" class="btn btn-info">Editar</a>
+                                                                    {{-- href="/user/{{ $user->id }}/edit" --}}
                                                                 <button type="button"
                                                                     class="text-white btn btn-warning"><i
                                                                         class="fa fa-edit"></i></button>
-                                                                <a href="/user/{{ $user->id }}/edit"
-                                                                    class="btn btn-info">Editar</a>
+                                                             
                                                                 @csrf
                                                                 @method('DELETE')
                                                                 <button type="submit"

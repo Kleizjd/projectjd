@@ -62,7 +62,7 @@
                                     <label for="foto">
                                         <div class="img__wrap border border-dark btn btn-outline-white d-flex justify-content-center">
                                             <img class="img-responsive" id="img_preview" class="img-responsive"
-                                                src="{{ asset('storage/uploads/portada_noticia.png') }}" height="250"
+                                                src="{{ asset('images/portada_noticia.png') }}" height="250"
                                                 width="250">
                                         </div>
                                     </label>

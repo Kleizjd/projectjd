@@ -15,7 +15,7 @@ body {
 /* Carousel base class */
 .carousel {
   /* margin-bottom: 4rem; */
-  margin-bottom:0;
+  margin-bottom:0; /* JDGO: ELIMINA ESPACIOS AL HACER LA FILA DEL CAROUSEL MAS DELGADA */
 }
 /* Since positioning the image, we need to help out the caption */
 .carousel-caption {
