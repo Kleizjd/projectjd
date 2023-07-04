@@ -5,8 +5,8 @@
 @section('content')
 
     <div class="container-fluid">
-        <div class="row ">
-            <div class="col-3 ">
+        <div class="row">
+            <div class="col-3 p-0">
                 <aside>
                     @if (Auth::check())
                         {{-- SIDEBAR --}}
@@ -53,96 +53,120 @@
                                             <strong>Success: </strong>{{ session()->get('message') }}
                                         </div>
                                     @endif
-
                                     <div class="row">
-
-                                        <div class="col-6">
-                                            @if (session('status'))
-                                                <div class="alert alert-success" role="alert">
-                                                    {{ session('status') }}
-                                                </div>
-                                            @endif
-                                            @if ($message = Session::get('success'))
-                                                <div class="alert alert-success">
-                                                    <p>{{ $message }}</p>
-                                                </div>
-                                            @endif
-                                            <form action="{{ route('home') }}" method="POST" enctype="multipart/form-data">
-                                                @csrf
-                                                <div class="card-header text-center">
-                                                    <div class="font-weight-bold">{{ Auth::user()->name }}'s Profile
+                                        <div class="col-md-3 border-right">
+                                            {{-- <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img
+                                                        class="rounded-circle mt-5" width="150px"
+                                                        src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg"><span
+                                                        class="font-weight-bold">Edogaru</span><span
+                                                        class="text-black-50">edogaru@mail.com.my</span><span> </span></div> --}}
+                                            <label for="photo">
+                                                <?php if (!empty(Auth::user()->image->url)) : ?>
+                                                <div class="row">
+                                                    <div class="col-12">
+                                                        <div
+                                                            class="d-flex flex-column align-items-center text-center p-3 py-5">
+                                                            <img id="img_preview"
+                                                                src="{{ asset(Auth::user()->image->url) }}" height="150px"
+                                                                width="150px">
+                                                            <span class="font-weight-bold">{{ Auth::user()->name }}'s
+                                                                Profile</span>
+                                                            <span class="text-black-50">{{ Auth::user()->email }}</span>
+                                                        </div>
                                                     </div>
-                                                    <div
-                                                        class="img__wrap border btn btn-outline-white d-flex justify-content-center">
-                                                        <label for="photo">
-                                                            <?php if (!empty(Auth::user()->image->url)) : ?>
-                                                            <i class="far fa-edit img__description">Cambiar</i>
-                                                            <div
-                                                                class="img__wrap border border-dark btn btn-outline-white d-flex justify-content-center">
-                                                                <img class="img-responsive" id="img_preview"
-                                                                    src="{{ asset(Auth::user()->image->url) }}"
-                                                                    height="190" width="190">
-                                                            </div>
-                                                            <?php else : ?>
-                                                            <i class="far fa-edit img__description">Cambiar</i>
-                                                            <div
-                                                                class="img__wrap border border-dark btn btn-outline-white d-flex justify-content-center">
-                                                                <img class="img-responsive" id="img_preview"
-                                                                    src="{{ asset('image/users/user_profile.png') }}"
-                                                                    height="190" width="190">
-                                                            </div>
-                                                            <?php endif; ?>
-                                                            <input type="file" name="photo" id="photo"
-                                                                accept="image/*" style="display: none;">
-                                                            @error('photo')
-                                                                <small class="text-danger">{{ $message }}</small>
-                                                            @enderror
-                                                    </div>
+                                                </div>
+                                                <?php else : ?>
+                                                <div class="row">
+                                                    <div class="col-12">
+                                                        <div
+                                                            class="d-flex flex-column align-items-center text-center p-3 py-5">
+                                                            <img id="img_preview"
+                                                                src="{{ asset('images/users/user_profile.png') }}"
+                                                                height="150px" width="150px">
+                                                            <span class="font-weight-bold">{{ Auth::user()->name }}'s
+                                                            </span>
+                                                            <span class="text-black-50">{{ Auth::user()->email }}</span>
 
+                                                        </div>
+                                                    </div>
                                                 </div>
-                                                <div class="form-group">
-                                                    <label for="name"><strong>Name:</strong></label>
-                                                    <input type="text" class="form-control" id="name" name="name"
-                                                        value="{{ Auth::user()->name }}">
-                                                </div>
-                                                <div class="form-group">
-                                                    <label for="email"><strong>Email:</strong></label>
-                                                    <input type="text" class="form-control" id="email"
-                                                        value="{{ Auth::user()->email }}" name="email">
-                                                </div>
-                                                <button class="btn btn-primary" type="submit">Update Profile</button>
-                                            </form>
+
+                                                <?php endif; ?>
+                                                <input type="file" name="photo" id="photo" accept="image/*"
+                                                    style="display: none;">
+                                                @error('photo')
+                                                    <small class="text-danger">{{ $message }}</small>
+                                                @enderror
                                         </div>
-                                        <div class="col">
+                                        <div class="col-md-5 border-right">
+                                            <div class="">
+                                                <div class="d-flex justify-content-between align-items-center mb-3">
+                                                    <h4 class="text-right">Configuraciones de Perfil</h4>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-6"><label class="labels">*Nombre</label><input
+                                                            type="text" class="form-control" placeholder="nombre"
+                                                            value=""></div>
+                                                    <div class="col-md-6"><label class="labels">*Apellido</label><input
+                                                            type="text" class="form-control" value=""
+                                                            placeholder="apellido"></div>
+                                                </div>
+                                                <div class="row">
 
-                                            <form action="{{ route('password-update') }}" method="POST">
-                                                @csrf
-                                                @if (session('error'))
-                                                    <div class="alert alert-danger" role="alert">
-                                                        {{ session('error') }}
+                                                    <div class="col-md-12"><label class="labels">Correo</label><input
+                                                            type="text" class="form-control"
+                                                            placeholder="Ingresa tu correo" value=""></div>
+                                                    <div class="col-md-12"><label class="labels">Telefono
+                                                            celular</label><input type="text" class="form-control"
+                                                            placeholder="ingrese su numero telefonico" value=""></div>
+                                                    <div class="col-md-12"><label
+                                                            class="labels">Educaci&oacute;n</label><input type="text"
+                                                            class="form-control" placeholder="educaci&oacute;n"
+                                                            value="">
                                                     </div>
-                                                @endif
-
-                                                <div class="form-group">
-                                                    <label for="email"><strong>Current Password:</strong></label>
-                                                    <input type="password" class="form-control" id="old_password"
-                                                        name="old_password">
+                                                    <div class="col-md-12"><label
+                                                            class="labels">Direcci&oacute;n</label><input type="text"
+                                                            class="form-control" placeholder="direcci&oacute;n"
+                                                            value=""></div>
+                                                    <div class="row">
+                                                        <div class="col-md-6"><label class="labels">Ciudad</label><input
+                                                                type="text" class="form-control" placeholder="ciudad"
+                                                                value=""></div>
+                                                        <div class="col-md-6"><label
+                                                                class="labels">Pa&iacute;s</label><input type="text"
+                                                                class="form-control" placeholder="country"
+                                                                value=""></div>
+                                                    </div>
                                                 </div>
-                                                <div class="form-group">
-                                                    <label for="new_password"><strong>New password:</strong></label>
-                                                    <input type="password" class="form-control" id="new_password"
-                                                        name="new_password">
-                                                </div>
-                                                <div class="form-group mb-2">
-                                                    <label for="password_confirm"><strong>Confirm
-                                                            Password:</strong></label>
-                                                    <input type="password" class="form-control" id="password_confirmed"
-                                                        name="password_confirmed">
-                                                </div>
-                                                <button class="btn btn-primary" type="submit">Update
-                                                    Password</button>
-                                            </form>
-
+                                                <div class="mt-5 text-center"><button
+                                                        class="btn btn-primary profile-button"
+                                                        type="button">Guardar</button></div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="p-3 py-5">
+                                                <form action="{{ route('password-update') }}" method="POST">
+                                                    @csrf
+                                                    @if (session('error'))
+                                                        <div class="alert alert-danger" role="alert">
+                                                            {{ session('error') }}
+                                                        </div>
+                                                    @endif
+                                                    <div class="form-group">
+                                                        <label for="new_password"><strong>New password:</strong></label>
+                                                        <input type="password" class="form-control" id="new_password"
+                                                            name="new_password">
+                                                    </div>
+                                                    <div class="form-group mb-2">
+                                                        <label for="password_confirm"><strong>Confirm
+                                                                Password:</strong></label>
+                                                        <input type="password" class="form-control"
+                                                            id="password_confirmed" name="password_confirmed">
+                                                    </div>
+                                                    <button class="btn btn-primary" type="submit">Update
+                                                        Password</button>
+                                                </form>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -158,8 +182,6 @@
                                                 <button class="btn btn-primary" data-bs-toggle="modal"
                                                     data-bs-target="#modalUsuario"><i class="fa fa-save">Crear
                                                         Usuario</i></button>
-
-                                                {{-- <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal-{{ $new->id }}">Ver Noticia</button> --}}
                                             </div>
 
                                             <table id="tableSearchUser" class="table-bordered table-hover"

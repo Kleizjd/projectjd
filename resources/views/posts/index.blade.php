@@ -16,7 +16,7 @@
                         <h5 class="card-title" id="titleModal">Nueva Noticia</h5>
                     </div>
                     <div class="card-body">
-                        <form action="{{ route('news') }}" method="POST" enctype="multipart/form-data">
+                        <form action="{{ route('post') }}" method="POST" enctype="multipart/form-data">
                             @csrf
                             @if (session('success'))
                                 <h6 class="alert alert-success">{{ session('success') }}</h6>

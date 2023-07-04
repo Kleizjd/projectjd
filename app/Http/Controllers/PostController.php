@@ -13,7 +13,7 @@ use Illuminate\Database\Query\Builderl;
 
 class PostController extends Controller
 {
-    public function index()
+    public function template()
     {
         // $posts = Image::select('*')->where('imageable_type', '=', 'App\Models\Post')->latest('id')->paginate(3);
         $cant_post = 3;
@@ -23,19 +23,25 @@ class PostController extends Controller
 
         return view('welcome', compact('posts'));
     }
+    public function index()
+    {
+        $categories = Category::all();
+        return view('posts.index', ['categories' => $categories]);
+    }
     // public function index(){$categories = Category::all();return view('news.index', ['categories' => $categories]);}
     public function show(Post $post)
     {
         // dd($post);
         // $this->authorize('published', $post);
-        // $similares = Post::where('category_id', $post->category_id)
-        //                         ->where('status', 2)
-        //                         ->where('id', '!=',$post->id)
-        //                         ->latest('id')
-        //                         ->take(4)
-        //                         ->get();
-        // return view('posts.show', compact('post', 'similares'));
-        return view('posts.show');
+        $similares = Post::where('category_id', $post->category_id)
+                                ->where('status', 2)
+                                ->where('id', '!=',$post->id)
+                                ->latest('id')
+                                ->take(4)
+                                ->get();
+                                // dd($similares);
+        return view('posts.show', compact('post', 'similares'));
+        // return view('posts.show');
     }
 
     public function edit($id)

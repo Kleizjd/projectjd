@@ -32,11 +32,15 @@
                         <h6 class="alert alert-danger">{{ $message }}</h6>
                     @enderror
 
-                    <div class="mb-3">
-                        <label for="name" class="form-label">New category </label>
-                        <input type="text" class="form-control" id="name" name="name">
-                    </div>
-                    <button type="submit" class="btn btn-primary">Create Category</button>
+                    <div class="card">
+                        <div class="card-header">
+                            <label for="name" class="form-label">Nueva categoria </label>
+                        </div>
+                        <div class="card-body">
+                            <div class="mb-3 mt-2">
+                                <input type="text" class="form-control" id="name" name="name">
+                            </div>
+                            <button type="submit" class="btn btn-primary">Crear categoria</button>
                 </form>
                 @foreach ($categories as $category)
                     <div class="row py-1">
@@ -55,39 +59,35 @@
                     </div>
 
 
-                    <!-- Modal -->
-                    <div class="modal fade" id="modal-{{ $category->id }}" tabindex="-1"
-                        aria-labelledby="exampleModalLabel" aria-hidden="true">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                        aria-label="Close"></button>
-                                </div>
-                                <div class="modal-body">
-                                    Al eliminar la categoria <strong> {{ $category->name }}</strong> se eliminan todas las
-                                    tareas
-                                    asignadas a la misma.
-                                    Está seguro que desea eliminar la categoria <strong>{{ $category->name }}</strong>?
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                    <form action="{{ route('categories-destroy', ['id' => $category->id]) }}"
-                                        method="POST">
-                                        @method('DELETE')
-                                        @csrf
-                                        <button type="submit" class="btn btn-danger">Delete</button>
-                                    </form>
-
-                                </div>
-                            </div>
-                        </div>
+        <!-- Modal -->
+        <div class="modal fade" id="modal-{{ $category->id }}" tabindex="-1" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
-                @endforeach
+                    <div class="modal-body">
+                        Al eliminar la categoria <strong> {{ $category->name }}</strong> se eliminan todas las
+                        tareas
+                        asignadas a la misma.
+                        Está seguro que desea eliminar la categoria <strong>{{ $category->name }}</strong>?
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <form action="{{ route('categories-destroy', ['id' => $category->id]) }}" method="POST">
+                            @method('DELETE')
+                            @csrf
+                            <button type="submit" class="btn btn-danger">Delete</button>
+                        </form>
 
-
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
+        @endforeach
+
 @endsection
+</div>
+
