@@ -11,33 +11,17 @@ use Illuminate\Support\Facades\Storage;
 
 class SettingsController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
         $users = User::all();
         return view('settings.index', ['users' => $users]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
         //
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
         $request->validate([
@@ -48,9 +32,6 @@ class SettingsController extends Controller
             'rol' => 'required'
         ]);
         $user = new User();
-        // $user = User::user(); //alternativa
-        // $user->create();
-        // $user = Auth::user();
 
         $user->name = $request->nombre;
         $user->email = $request->email2;
@@ -75,34 +56,15 @@ class SettingsController extends Controller
     //     Mail::to("jose.jdgo97@gmail.com")->send($correo);
     //     return redirect()->route('contactanos.index')->with('info', 'Mensaje enviado');
     // }
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function show($id)
     {
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit($id)
     {
         //
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, $id)
     {
         $user = User::find($id);
@@ -115,12 +77,6 @@ class SettingsController extends Controller
         return redirect()->route('settings.index');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function destroy($id)
     {
         //

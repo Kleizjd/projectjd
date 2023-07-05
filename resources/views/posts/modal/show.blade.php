@@ -1,5 +1,5 @@
 <!-- Modal BUSCAR -->
-<div class="modal fade" id="modal-{{ $new->id }}" tabindex="-1"
+<div class="modal fade" id="modal-{{ $post->id }}" tabindex="-1"
 	aria-labelledby="exampleModalLabel" aria-hidden="true">
 	<div class="modal-dialog modal-lg" role="document" style="max-width: 80%;">
 
@@ -15,9 +15,9 @@
 					<div class="col-6 border">
 						<div class="row">
 							<div class="col-5">
-								<img src="{{ asset($new->image_new) }}" width="178" height="178" />
-								<h4 id="titulo_notice">{{ $new->title}}</h4>
-								<p class="text-muted" id="categoria_notice">{{ $new->name }}
+								<img src="{{ asset($post->image->url) }}" width="178" height="178" />
+								<h4 id="titulo_notice">{{ $post->title}}</h4>
+								<p class="text-muted" id="categoria_notice">{{ $post->title }}
 								</p>
 								<p><input type="checkbox" name="option" id="me_gusta">
 									<label for="check1">
@@ -31,7 +31,7 @@
 							<div class="col-7">
 								<div class="row" style="height: 80%;">
 									<div class="col">
-										<p class="">{{ $new->description }}</p>
+										<p class="">{{ $post->description }}</p>
 									</div>
 								</div>
 								<div class="row">

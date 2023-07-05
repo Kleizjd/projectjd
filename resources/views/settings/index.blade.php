@@ -53,122 +53,137 @@
                                             <strong>Success: </strong>{{ session()->get('message') }}
                                         </div>
                                     @endif
+
                                     <div class="row">
-                                        <div class="col-md-3 border-right">
-                                            {{-- <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img
-                                                        class="rounded-circle mt-5" width="150px"
-                                                        src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg"><span
-                                                        class="font-weight-bold">Edogaru</span><span
-                                                        class="text-black-50">edogaru@mail.com.my</span><span> </span></div> --}}
-                                            <label for="photo">
-                                                <?php if (!empty(Auth::user()->image->url)) : ?>
-                                                <div class="row">
-                                                    <div class="col-12">
-                                                        <div
-                                                            class="d-flex flex-column align-items-center text-center p-3 py-5">
-                                                            <img id="img_preview"
-                                                                src="{{ asset(Auth::user()->image->url) }}" height="150px"
-                                                                width="150px">
-                                                            <span class="font-weight-bold">{{ Auth::user()->name }}'s
-                                                                Profile</span>
-                                                            <span class="text-black-50">{{ Auth::user()->email }}</span>
+                                        <div class="col-md-8">
+                                        <form action="{{ route('home') }}" method="POST" enctype="multipart/form-data">
+                                            <div class="row">
+                                                <div class="col-md-5 border-right">
+                                                    {{-- <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img
+                                                                class="rounded-circle mt-5" width="150px"
+                                                                src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg"><span
+                                                                class="font-weight-bold">Edogaru</span><span
+                                                                class="text-black-50">edogaru@mail.com.my</span><span> </span></div> --}}
+                                                    <label for="photo">
+                                                        @if (!empty(Auth::user()->image->url)) : ?>
+                                                        <div class="row">
+                                                            <div class="col-12">
+                                                                <div
+                                                                    class="d-flex flex-column align-items-center text-center p-3 py-5">
+                                                                    <img id="img_preview"
+                                                                        src="{{ asset(Auth::user()->image->url) }}" height="150px"
+                                                                        width="150px">
+                                                                    <span class="font-weight-bold">{{ Auth::user()->name }}'s
+                                                                        Profile</span>
+                                                                    <span class="text-black-50">{{ Auth::user()->email }}</span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        @else
+                                                        <div class="row">
+                                                            <div class="col-12">
+                                                                <div
+                                                                    class="d-flex flex-column align-items-center text-center p-3 py-5">
+                                                                    <img id="img_preview"
+                                                                        src="{{ asset('images/users/user_profile.png') }}"
+                                                                        height="150px" width="150px">
+                                                                    <span class="font-weight-bold">{{ Auth::user()->name }}'s
+                                                                    </span>
+                                                                    <span class="text-black-50">{{ Auth::user()->email }}</span>
+        
+                                                                </div>
+                                                            </div>
+                                                        </div>
+        
+                                                        @endif
+                                                        <input type="file" name="photo" id="photo" accept="image/*"
+                                                            style="display: none;">
+                                                        @error('photo')
+                                                            <small class="text-danger">{{ $message }}</small>
+                                                        @enderror
+                                                </div>
+                                                <div class="col-md-6 border-right">
+                                                    <div class="">
+                                                        <div class="d-flex justify-content-between align-items-center mb-3">
+                                                            <h4 class="text-right">Configuraciones de Perfil</h4>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-12"><label class="labels">*Nombre</label><input
+                                                                    type="text" class="form-control" placeholder="nombre"
+                                                                    value="{{ Auth::user()->name }}" id="name" name="name">
+                                                            </div>
+                                                            {{-- <div class="col-md-6"><label class="labels">*Apellido</label><input
+                                                                    type="text" class="form-control" value=""
+                                                                    placeholder="apellido"></div> --}}
+                                                        </div>
+                                                        <div class="row">
+        
+                                                            <div class="col-md-12"><label class="labels">Correo</label><input
+                                                                    type="text" class="form-control"
+                                                                    placeholder="Ingresa tu correo"
+                                                                    value="{{ Auth::user()->email }}" id="email"
+                                                                    name="email"></div>
+                                                            <div class="col-md-12"><label class="labels">Telefono
+                                                                    celular</label><input type="text" class="form-control"
+                                                                    placeholder="ingrese su numero telefonico" value=""></div>
+                                                            <div class="col-md-12"><label
+                                                                    class="labels">Educaci&oacute;n</label><input type="text"
+                                                                    class="form-control" placeholder="educaci&oacute;n"
+                                                                    value="">
+                                                            </div>
+                                                            <div class="col-md-12"><label
+                                                                    class="labels">Direcci&oacute;n</label><input type="text"
+                                                                    class="form-control" placeholder="direcci&oacute;n"
+                                                                    value=""></div>
+                                                            <div class="row">
+                                                                <div class="col-md-6"><label class="labels">Ciudad</label><input
+                                                                        type="text" class="form-control" placeholder="ciudad"
+                                                                        value=""></div>
+                                                                <div class="col-md-6"><label
+                                                                        class="labels">Pa&iacute;s</label><input type="text"
+                                                                        class="form-control" placeholder="country"
+                                                                        value=""></div>
+                                                            </div>
+                                                            <div class="mt-5 text-center"><button
+                                                                    class="btn btn-primary profile-button"
+                                                                    type="submit">Guardar</button></div>
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <?php else : ?>
-                                                <div class="row">
-                                                    <div class="col-12">
-                                                        <div
-                                                            class="d-flex flex-column align-items-center text-center p-3 py-5">
-                                                            <img id="img_preview"
-                                                                src="{{ asset('images/users/user_profile.png') }}"
-                                                                height="150px" width="150px">
-                                                            <span class="font-weight-bold">{{ Auth::user()->name }}'s
-                                                            </span>
-                                                            <span class="text-black-50">{{ Auth::user()->email }}</span>
-
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                                <?php endif; ?>
-                                                <input type="file" name="photo" id="photo" accept="image/*"
-                                                    style="display: none;">
-                                                @error('photo')
-                                                    <small class="text-danger">{{ $message }}</small>
-                                                @enderror
-                                        </div>
-                                        <div class="col-md-5 border-right">
-                                            <div class="">
-                                                <div class="d-flex justify-content-between align-items-center mb-3">
-                                                    <h4 class="text-right">Configuraciones de Perfil</h4>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-md-6"><label class="labels">*Nombre</label><input
-                                                            type="text" class="form-control" placeholder="nombre"
-                                                            value=""></div>
-                                                    <div class="col-md-6"><label class="labels">*Apellido</label><input
-                                                            type="text" class="form-control" value=""
-                                                            placeholder="apellido"></div>
-                                                </div>
-                                                <div class="row">
-
-                                                    <div class="col-md-12"><label class="labels">Correo</label><input
-                                                            type="text" class="form-control"
-                                                            placeholder="Ingresa tu correo" value=""></div>
-                                                    <div class="col-md-12"><label class="labels">Telefono
-                                                            celular</label><input type="text" class="form-control"
-                                                            placeholder="ingrese su numero telefonico" value=""></div>
-                                                    <div class="col-md-12"><label
-                                                            class="labels">Educaci&oacute;n</label><input type="text"
-                                                            class="form-control" placeholder="educaci&oacute;n"
-                                                            value="">
-                                                    </div>
-                                                    <div class="col-md-12"><label
-                                                            class="labels">Direcci&oacute;n</label><input type="text"
-                                                            class="form-control" placeholder="direcci&oacute;n"
-                                                            value=""></div>
-                                                    <div class="row">
-                                                        <div class="col-md-6"><label class="labels">Ciudad</label><input
-                                                                type="text" class="form-control" placeholder="ciudad"
-                                                                value=""></div>
-                                                        <div class="col-md-6"><label
-                                                                class="labels">Pa&iacute;s</label><input type="text"
-                                                                class="form-control" placeholder="country"
-                                                                value=""></div>
-                                                    </div>
-                                                </div>
-                                                <div class="mt-5 text-center"><button
-                                                        class="btn btn-primary profile-button"
-                                                        type="button">Guardar</button></div>
                                             </div>
+                                        </form>
                                         </div>
-                                        <div class="col-md-4">
-                                            <div class="p-3 py-5">
-                                                <form action="{{ route('password-update') }}" method="POST">
-                                                    @csrf
-                                                    @if (session('error'))
-                                                        <div class="alert alert-danger" role="alert">
-                                                            {{ session('error') }}
-                                                        </div>
-                                                    @endif
-                                                    <div class="form-group">
-                                                        <label for="new_password"><strong>New password:</strong></label>
-                                                        <input type="password" class="form-control" id="new_password"
-                                                            name="new_password">
+
+                                        <div class="col-md-4 p-3 py-5">
+                                            <form action="{{ route('password-update') }}" method="POST">
+                                                @csrf
+                                                @if (session('error'))
+                                                    <div class="alert alert-danger" role="alert">
+                                                        {{ session('error') }}
                                                     </div>
-                                                    <div class="form-group mb-2">
-                                                        <label for="password_confirm"><strong>Confirm
-                                                                Password:</strong></label>
-                                                        <input type="password" class="form-control"
-                                                            id="password_confirmed" name="password_confirmed">
-                                                    </div>
-                                                    <button class="btn btn-primary" type="submit">Update
-                                                        Password</button>
-                                                </form>
-                                            </div>
+                                                @endif
+                                                <div class="form-group">
+                                                    <label for="email">Current Password:</label>
+                                                    <input type="password" class="form-control" id="old_password"
+                                                        name="old_password">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="new_password">New password:</label>
+                                                    <input type="password" class="form-control" id="new_password"
+                                                        name="new_password">
+                                                </div>
+                                                <div class="form-group mb-2">
+                                                    <label for="password_confirm">Confirm
+                                                        Password:</label>
+                                                    <input type="password" class="form-control" id="password_confirmed"
+                                                        name="password_confirmed">
+                                                </div>
+                                                <button class="btn btn-primary" type="submit">Update
+                                                    Password</button>
+                                            </form>
                                         </div>
                                     </div>
+                                    </form>
                                 </div>
                             </div>
                             <div class="tab-pane fade show"active id="nav-profile" role="tabpanel"
@@ -184,8 +199,7 @@
                                                         Usuario</i></button>
                                             </div>
 
-                                            <table id="tableSearchUser" class="table-bordered table-hover"
-                                                width="100%">
+                                            <table id="tableSearchUser" class="table-bordered table-hover" width="100%">
 
                                                 <thead id="table_usuarios"
                                                     class="table text-white bg-primary thead-primary">
@@ -221,11 +235,10 @@
                                                             </td>
                                                             <td>
                                                                 {{-- <form action="{{ route('user.edit', $user->id) }}" method="POST"> --}}
-                                                                    {{-- href="/user/{{ $user->id }}/edit" --}}
-                                                                <button type="button"
-                                                                    class="text-white btn btn-warning"><i
+                                                                {{-- href="/user/{{ $user->id }}/edit" --}}
+                                                                <button type="button" class="text-white btn btn-warning"><i
                                                                         class="fa fa-edit"></i></button>
-                                                             
+
                                                                 @csrf
                                                                 @method('DELETE')
                                                                 <button type="submit"

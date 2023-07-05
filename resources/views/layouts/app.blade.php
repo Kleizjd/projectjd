@@ -14,11 +14,10 @@
     <link rel="dns-prefetch" href="//fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
     {{-- <link rel="stylesheet" href="node_modules/@fortawesome/fontawesome-free/css/all.min.css"> --}}
-        <!-- Enlazar archivo CSS -->
-    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+    <!-- Enlazar archivo CSS -->
+    {{-- <link rel="stylesheet" href="{{ asset('/app.css') }}"> --}}
     <!-- Enlazar archivo JS -->
-    <script src="{{ asset('js/app.js') }}"></script>
-
+    {{-- <script src="{{ asset('js/app.js') }}"></script> --}}
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 </head>
@@ -57,8 +56,8 @@
                                         <img src="{{ asset(Auth::user()->photo) }}" id="perfil2" alt="user"
                                             class="img-circle" width="30">
                                     @else
-                                        <img src="{{ asset('images/users/user_profile.png') }}" alt="user" class="img-circle"
-                                            width="30">
+                                        <img src="{{ asset('images/users/user_profile.png') }}" alt="user"
+                                            class="img-circle" width="30">
                                     @endif
                                     {{ Auth::user()->name }}
                                 </a>
@@ -98,7 +97,7 @@
     </div>
 
 
-       <main class=" p-0 m-0 border-0">
+    <main class=" p-0 m-0 border-0">
 
         @yield('content')
     </main>

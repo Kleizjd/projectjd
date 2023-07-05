@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\File;
+use App\Models\Post;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -23,13 +24,13 @@ class HomeController extends Controller
 
     public function index()
     {
-        return view('home');
+        $posts = Post::select('*')->join('categories', 'categories.id', '=', 'posts.category_id')->get();
+        return view('home', compact('posts'));
     }
 
     public function profileUpdate(Request $request)
     {
         //validation rules
-
         $request->validate([
             'name' => 'required|min:4|string|max:255',
             'email' => 'required|email|string|max:255',
@@ -44,13 +45,12 @@ class HomeController extends Controller
             $nombre =  time() . "_" . $file->getClientOriginalName();
             $imagenes = $file->storeAs('public/uploads', $nombre);
             $url = Storage::url($imagenes);
-            // File::create(['url' => $url]);
-            if($user->image->url){
-                unlink(public_path().$user->image->url);
-              
-                $user->image->update([ 'url' => $url]);
+
+            if ($user->image->url) {
+                unlink(public_path() . $user->image->url);
+                $user->image->update(['url' => $url]);
             } else {
-                $user->image()->create([ 'url' => $url]);
+                $user->image()->create(['url' => $url]);
             }
             $user->image->url = $url;
         }
@@ -66,7 +66,7 @@ class HomeController extends Controller
             'new_password' => 'required|min:8|max:32',
             'password_confirmed' => 'required|same:new_password',
         ]);
- 
+
         #Match The Old Password
         $hashedPassword = Auth::user()->password;
         if (!Hash::check($request->old_password, $hashedPassword)) {
@@ -76,5 +76,5 @@ class HomeController extends Controller
         User::whereId(auth()->user()->id)->update(['password' => Hash::make($request->new_password)]);
         return back()->with("status", "Password changed successfully!");
     }
-
+   
 }

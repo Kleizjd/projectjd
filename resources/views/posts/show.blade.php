@@ -37,8 +37,7 @@
                         <button class="btn btn-circle btn-secondary"><i class="fab fa-youtube"></i></button>
                     </div>
                     <div class="col-lg-3 col-xlg-3 col-md-3">
-                        {{-- <small class="text-muted">Email address</small> --}}
-                        <h3>{{ $post->name }}</h3>
+                        <h3>{{ $post->title }}</h3>
 
                         <p>{{ $post->body }}</p>
                         <br>
@@ -51,7 +50,7 @@
                                     <li class="list-inline-item">Elemento 1</li>
                                     <li class="list-inline-item">Elemento 2</li>
                                     <li class="list-inline-item">Elemento 3</li>
-                                    
+
                                     {{-- @foreach ($similares as $similar)
                                         <li class="list-inline-item">Elemento 1</li>
                                     @endforeach --}}
@@ -64,25 +63,25 @@
 
                                     <div class="card-body">
                                         @if (Route::has('login'))
-                                        <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block ">
-                                            @auth
-                                            <div class="input-group">
-                                                <input type="text" class="form-control" name="comentario" id="comentario"
-                                                    placeholder="Realice un comentario" aria-label="Input group example"
-                                                    aria-describedby="btnGroupAddon">
-                                                <div class="input-group-prepend ">
-                                                    <button class="btn btn-primary" id="btnGroupAddon" type="submit">
-                                                        <i class="far fa-paper-plane"></i>
-                                                    </button>
-                                                </div>
+                                            <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block ">
+                                                @auth
+                                                    <div class="input-group">
+                                                        <input type="text" class="form-control" name="comentario"
+                                                            id="comentario" placeholder="Realice un comentario"
+                                                            aria-label="Input group example" aria-describedby="btnGroupAddon">
+                                                        <div class="input-group-prepend ">
+                                                            <button class="btn btn-primary" id="btnGroupAddon" type="submit">
+                                                                <i class="far fa-paper-plane"></i>
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                    <br>
+                                                @else
+                                                    <h2>Comentarios</h2>
+                                                @endauth
                                             </div>
-                                            <br>
-                                            @else
-                                                <h2>Comentarios</h2>
-                                            @endauth
-                                        </div>
-                                    @endif
-                                   
+                                        @endif
+
                                         <div class="sl-item">
                                             <div class="sl-left">
                                                 <img src="{{ asset($post->image->url) }}" width="50" alt="user"
@@ -172,4 +171,5 @@
                 {{-- </div> --}}
             </div>
         </div>
-    @endsection
+    </div>
+@endsection

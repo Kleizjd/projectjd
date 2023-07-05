@@ -16,8 +16,7 @@ class PostSeeder extends Seeder
         foreach($posts as $post){
             Image::factory(1)->create([
                 'imageable_id' => $post->id,
-                'imageable_type' => Post::class,
-                'identifier' => '2']);
+                'imageable_type' => Post::class]);
             $post->tags()->attach([
                 rand(1,4),//1 etiqueta al azar
                 rand(5,8) //2 etiqueta al azar

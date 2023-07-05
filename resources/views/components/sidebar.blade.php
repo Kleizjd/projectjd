@@ -10,7 +10,8 @@
 
   <ul class="list-group">
       <li class="list-group-item">
-        <i class="fas fa-home"></i>Home - Dashboard</li>
+        <a class="nav-link active" href="{{ route('home') }}">
+        <i class="fas fa-home"></i>Home - Dashboard</a></li>
       <li class="list-group-item">
         <a class="nav-link active" href="{{ route('post') }}">
              Noticias

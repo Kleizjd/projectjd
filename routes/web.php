@@ -12,11 +12,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [PostController::class, 'template']);Auth::routes();
 // POSTS
 Route::get('/posts/{post}',[PostController::class, 'show'])->name('posts.show');
-
 Route::get('/post',[PostController::class, 'index'])->name('post')->middleware('auth');
 Route::post('post',[PostController::class, 'store'])->name('post')->middleware('auth');
-Route::get('main',[PostController::class, 'main'])->name('main')->middleware('auth');
-
+// HOME
 Route::get('/home', [HomeController::class, 'index'])->name('home')->middleware('auth');
 Route::post('/home', [HomeController::class, 'profileUpdate'])->name('home')->middleware('auth');
 Route::post('/update', [HomeController::class, 'passwordUpdate'])->name('password-update')->middleware('auth');
