@@ -4,7 +4,9 @@ use App\Http\Controllers\CategoriesController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\SettingsController;
+use App\Mail\ContactUsMailable;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Mail;
 
 
 // Route::get('/', function () { return view('welcome'); });
@@ -27,3 +29,11 @@ Route::post('categories',[CategoriesController::class, 'store'])->name('categori
 Route::post('categories/{id}',[CategoriesController::class, 'show'])->name('categories-edit')->middleware('auth');
 Route::patch('categories/{id}',[CategoriesController::class, 'update'])->name('categories-update')->middleware('auth');
 Route::delete('categories/{id}',[CategoriesController::class, 'destroy'])->name('categories-destroy')->middleware('auth');
+// MAIL
+// Route:: get('contactanos', function(){
+//     $correo = new ContactUsMailable(); 
+//     Mail::to('jose.jdgo97@gmmail.com')->send($correo);
+//     return 'Mensaje enviado';
+// });
+Route:: get('contactanos', [ContactUsController::class, 'index'])->name('contactanos.index');
+Route:: post('contactanos', [ContactUsController::class, 'store'])->name('contactanos.store');
