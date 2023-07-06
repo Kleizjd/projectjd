@@ -55,12 +55,15 @@
                                             {{ __('Login') }}
                                         </button>
                                     </div>
+                                </form>
 
                                     @if (Route::has('password.request'))
-                                        <a class="small text-muted" href="{{ route('password.request') }}">
-                                            {{ __('Forgot Your Password?') }}
-                                        </a>
-                                    @endif
+                                    <a class="small text-muted" data-bs-toggle="modal"
+                                        data-bs-target="#modalRecoverPassword">
+                                        {{ __('Forgot Your Password?') }}
+                                    </a>
+                                    @include('auth.passwords.modal.email')
+                                @endif
                                     <p class="mb-5 pb-lg-2" style="color: #393f81;">No tienes cuenta?
                                         @if (Route::has('register'))
                                             <a style="color: #393f81;" href="{{ route('register') }}">Registrate</a>
@@ -69,7 +72,6 @@
                                     </p>
                                     <a href="#!" class="small text-muted">Teminos de uso.</a>
                                     <a href="#!" class="small text-muted">Politicas de privacidad</a>
-                                </form>
 
                             </div>
                             <div class="col-lg-6 col-xl-7 align-items-center order-2 order-lg-1">
