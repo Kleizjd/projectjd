@@ -19,7 +19,8 @@
 
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+    <header>
+        <nav class="navbar navbar-expand-md navbar-dark fixed-top mb-4 bg-dark">
 
             <div class="container-fluid">
                 <span class="navbar-brand" href="#">
@@ -88,7 +89,7 @@
 
             </div>
         </nav>
-
+    </header>
     </div>
 
 

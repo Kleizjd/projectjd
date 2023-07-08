@@ -11,7 +11,7 @@ class ContactUsController extends Controller
  
     public function index()
     {
-        return view('auth.passwords.email');
+        return view('auth.passwords.email')->with('info', 'Mensaje enviado');
         // return view('emails.contactanos');
     }
 
@@ -27,16 +27,15 @@ class ContactUsController extends Controller
         //      $request->validate([
         //     'name' => 'required',
         //     'correo' => 'required|email',
-        //     'mensaje' => 'required',
-            
+        //     'mensaje' => 'required',  
         // ]);
         // $request->validate(['correo' => 'required|email','mensaje' => 'required' ]);
         $correo = new ContactUsMailable($request->all()); 
         // dd($request->all());
-        Mail::to($request->email_link)->send($correo);
-       
-        // return 'Mensaje enviado';
-        return redirect()->route('contactanos.index')->with('info', 'Mensaje enviado');
+        $verdadero = Mail::to($request->email)->send($correo);
+       dd($verdadero);
+        return 'Mensaje enviado';
+        // return redirect()->route('contactanos.index')->with('info', 'Mensaje enviado');
 
     }
 

@@ -1,5 +1,9 @@
 @extends('layouts.app')
 @section('content')
+<br>
+<br>
+<br>
+
     <div class="container-fluid">
         <div class="row">
             {{-- <div class="col-3 p-0">
@@ -14,20 +18,10 @@
                     <div class="col-md-5 align-self-center">
                         <h4 class="text-themecolor">Detalles de la noticia</h4>
                     </div>
-                    {{-- <div class="col-md-7 align-self-center text-right">
-                        <div class="d-flex justify-content-end align-items-center">
-                            <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
-                                <li class="breadcrumb-item active">Contact Details</li>
-                            </ol>
-                            <button type="button" class="btn btn-info d-none d-lg-block m-l-15"><i
-                                    class="fa fa-plus-circle"></i> Create New</button>
-                        </div>
-                    </div> --}}
                 </div>
 
                 <div class="row">
-                    <div class="col-lg-3 col-xlg-3 col-md-3">
+                    <div class="col-lg-5 col-xlg-5 col-md-5">
                         <img class="card-img" src="{{ asset($post->image->url) }}" height="456" alt="Card image">
                         <small class="text-muted p-t-30 db">Social Profile</small>
 
@@ -43,7 +37,7 @@
                         <br>
 
                     </div>
-                    <div class="col-lg-6 col-xlg-6 col-md-6">
+                    <div class="col-lg-4 col-xlg-4 col-md-4 ">
                         <div class="row">
                             <div class="col-12">
                                 <ul class="list-inline">
@@ -63,7 +57,7 @@
 
                                     <div class="card-body">
                                         @if (Route::has('login'))
-                                            <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block ">
+                                            <div class="">
                                                 @auth
                                                     <div class="input-group">
                                                         <input type="text" class="form-control" name="comentario"

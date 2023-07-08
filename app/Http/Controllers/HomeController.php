@@ -24,7 +24,10 @@ class HomeController extends Controller
 
     public function index()
     {
-        $posts = Post::select('*')->join('categories', 'categories.id', '=', 'posts.category_id')->get();
+        $posts = Post::select('posts.*')
+        ->join('categories', 'categories.id', '=', 'posts.category_id')
+        ->latest()
+        ->get();
         return view('home', compact('posts'));
     }
 

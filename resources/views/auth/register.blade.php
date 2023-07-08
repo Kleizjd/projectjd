@@ -1,18 +1,23 @@
 @extends('layouts.app')
 <style>
+    .responsive-img {
+      max-width: 90%;
+      height: auto;
+    }
     
-</style>
+  </style>
 @section('content')
     {{-- <link rel="stylesheet" href="css/signup.css"> --}}
-
-    <div class="container h-100">
-        <div class="row justify-content-center align-items-center h-100">
-            <div class="col-lg-12 col-xl-11">
+    <br>
+    <br>
+    <div class="container">
+        <div class="row justify-content-center align-items-center">
+            <div class="col-lg-12 col-xl-11 mt-4">
                 <div class="card text-black" style="border-radius: 25px;">
                     <div class="card-body">
                         <div class="row justify-content-center">
-                            <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
-                                <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Inscribirse</p>
+                            <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1 m-0">
+                                <p class="text-center h1 fw-bold mx-1 mx-md-4">Inscribirse</p>
                                 <form class="mx-1 mx-md-4" method="POST" action="{{ route('register') }}" autocomplete="off">
                                     @csrf
                                     <div class="d-flex flex-row align-items-center mb-4">
@@ -80,7 +85,7 @@
                                 </form>
                             </div>
                             <div class="col-md-10 col-lg-6 col-xl-7 align-items-center order-1 order-lg-2">
-                                <img src="images/team.png" class="img-fluid rounded-3" alt="Sample image">
+                                <img src="images/team.png" class="responsive-img rounded-3 " alt="Sample image">
                             </div>
                         </div>
                     </div>

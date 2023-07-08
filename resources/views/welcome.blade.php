@@ -9,32 +9,10 @@
     <meta name="generator" content="Hugo 0.84.0">
     <title>Springfield posts</title>
 
-    <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/carousel/">
-
-
-
+    <link href="css/carousel/carousel.css" rel="stylesheet">
     <!-- Bootstrap core CSS -->
     <!-- Scripts -->
     @vite(['resources/js/app.js'])
-     <!-- Custom styles for this template -->
-     <link href="css/carousel/carousel.css" rel="stylesheet">
-    {{-- <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet"> --}}
-    {{-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous"> --}}
-    <style>
-        .bd-placeholder-img {
-            font-size: 1.125rem;
-            text-anchor: middle;
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            user-select: none;
-        }
-
-        @media (min-width: 768px) {
-            .bd-placeholder-img-lg {
-                font-size: 3.5rem;
-            }
-        }
-    </style>
 
 <body class="bg-dark text-white">
 
@@ -48,18 +26,6 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarCollapse">
-                    {{-- <ul class="navbar-nav ms-auto mb-2 mb-md-0">
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Link</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-                        </li>
-                    </ul> --}}
-
                     @if (Route::has('login'))
                     <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block ms-auto mb-2 ">
                         @auth
@@ -112,7 +78,7 @@
         </div>
 
         <!-- FOOTER -->
-        <footer class="container">
+        <footer class="container mt-4">
             <div class="row footer-info">
                 <div class="col-md-4 col-sm-4 footer-info-grid links">
                     <h4>ENLACES RÁPIDOS</h4>
@@ -155,6 +121,4 @@
         </footer>
     </main>
 </body>
-
-
 </html>

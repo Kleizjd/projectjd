@@ -18,9 +18,12 @@ class PostController extends Controller
     public function template()
     {
         // $cant_post = 3;
+        // $posts = Post::select('posts.*')
         $posts = Post::select('*')
-            ->join('images', 'posts.id', '=', 'images.imageable_id')
-            ->where('imageable_type', '=', 'App\Models\Post')->get(); //selecciona imagenes
+        ->join('images', 'posts.id', '=', 'images.imageable_id')
+        ->where('imageable_type', '=', 'App\Models\Post')
+        // ->orderBy('posts.created_at', 'desc')
+        ->get(); //selecciona imagenes
 
         return view('welcome', compact('posts'));
     }

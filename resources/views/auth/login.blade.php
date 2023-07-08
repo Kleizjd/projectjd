@@ -1,27 +1,26 @@
 @extends('layouts.app')
 
 @section('content')
-
+<br>
+<br>
+<br>
     <div class="container mt-4">
         <div class="row">
             <div class="col-12">
                 <div class="card">
                     <div class="card-body">
                         <div class="row justify-content-center">
-                            <div class="col-md-10 col-lg-6 col-xl-5 order-1 order-lg-2">
+                            <div class="col-lg-6 col-xl-7 align-items-center order-1 order-lg-1">
+                                {{-- <img src="images/team.png" class="img-fluid rounded-3" alt="Sample image"> --}}
+                                <img src="images/background-new.png" class="card-img " alt="Sample image">
+
+                            </div>
+                            <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-2">
 
                                 <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Ingresar</p>
 
                                 <form method="POST" action="{{ route('login') }}">
                                     @csrf
-
-                                    {{-- <div class="d-flex align-items-center mb-3 pb-1">
-                                        <i class="fas fa-cubes fa-2x me-3" style="color: #ff6219;"></i>
-                                        <span class="h1 fw-bold mb-0">Logo</span>
-                                    </div> --}}
-
-                                    {{-- <h5 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Sign into your account</h5> --}}
-
                                     <div class="form-outline">
                                         <input id="email" type="email"
                                             class="form-control form-control-lg @error('email') is-invalid @enderror"
@@ -77,11 +76,7 @@
                                     <a href="#!" class="small text-muted">Politicas de privacidad</a>
 
                             </div>
-                            <div class="col-lg-6 col-xl-7 align-items-center order-2 order-lg-1">
-                                {{-- <img src="images/team.png" class="img-fluid rounded-3" alt="Sample image"> --}}
-                                <img src="images/background-new.png" class="card-img " alt="Sample image">
-
-                            </div>
+                           
                         </div>
                     </div>
                 </div>
