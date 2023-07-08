@@ -58,11 +58,14 @@
                                 </form>
 
                                     @if (Route::has('password.request'))
-                                    <a class="small text-muted" data-bs-toggle="modal"
+                                    {{-- <a class="small text-muted" data-bs-toggle="modal"
                                         data-bs-target="#modalRecoverPassword">
                                         {{ __('Forgot Your Password?') }}
                                     </a>
-                                    @include('auth.passwords.modal.email')
+                                    @include('auth.passwords.modal.email') --}}
+                                    <a class="btn btn-link" href="{{ route('password.request') }}">
+                                        {{ __('Forgot Your Password?') }}
+                                    </a>
                                 @endif
                                     <p class="mb-5 pb-lg-2" style="color: #393f81;">No tienes cuenta?
                                         @if (Route::has('register'))

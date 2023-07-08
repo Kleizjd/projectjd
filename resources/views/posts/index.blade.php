@@ -21,7 +21,8 @@
                             @if (session('success'))
                                 <h6 class="alert alert-success">{{ session('success') }}</h6>
                             @endif
-                            <p class="text-primary">Los campos con asterisco (<span class="required">*</span>) son
+                            <p class="text-primary">Los campos con asterisco (<span class="required text-danger">*</span>)
+                                son
                                 obligatorios.</p>
                             <div class="container-fluid">
                                 <div class="row">
@@ -29,23 +30,13 @@
                                         <div class="col-md-5 align-self-center">
                                             <h4 class="text-themecolor">Detalles de la noticia</h4>
                                         </div>
-                                        {{-- <div class="col-md-7 align-self-center text-right">
-                                                <div class="d-flex justify-content-end align-items-center">
-                                                    <ol class="breadcrumb">
-                                                        <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
-                                                        <li class="breadcrumb-item active">Contact Details</li>
-                                                    </ol>
-                                                    <button type="button" class="btn btn-info d-none d-lg-block m-l-15"><i
-                                                            class="fa fa-plus-circle"></i> Create New</button>
-                                                </div>
-                                            </div> --}}
                                     </div>
 
                                     <div class="row">
                                         <div class="col-lg-5 col-xlg-5 col-md-5">
                                             <label for="foto">
-                                                <img class="card-img border" src="{{ asset('images/portada_noticia.png') }}"
-                                                    height="456" alt="Card image">
+                                                <img class="card-img border" id="img_preview" src="{{ asset('images/portada_noticia.png') }}"
+                                                     alt="Card image">
                                             </label>
                                             <input id="foto" name="foto" type="file" accept="image/*"
                                                 style="display: none;" />
@@ -86,25 +77,31 @@
 
                                                 </select>
                                             </div>
+                                            <div class="form-group">
+
+                                                <button id="btnActionForm" class="btn btn-primary mt-3" type="submit"><i
+                                                        class="fa fa-fw fa-lg fa-check-circle"></i><span id="btnText"
+                                                        title="Crear Noticia">Guardar</span></button>
+                                            </div>
                                             @error('category_id')
                                                 <small class="text-danger">{{ $message }}</small>
                                             @enderror
+
                                         </div>
                                     </div>
-                                    <div class="row">
-                                    </div>
+
                                 </div>
                             </div>
-                        </form>
                     </div>
+                    </form>
+                </div>
 
-                    {{-- <div class="tile-footer">
+                {{-- <div class="tile-footer">
                         <button id="btnActionForm" class="btn btn-primary" type="submit"><i
                                 class="fa fa-fw fa-lg fa-check-circle"></i><span id="btnText"
                                 title="Crear Noticia">Guardar</span></button>
                     </div> --}}
-                    </form>
-                </div>
+                </form>
             </div>
         </div>
     </div>

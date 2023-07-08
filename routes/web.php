@@ -35,6 +35,6 @@ Route::delete('categories/{id}',[CategoriesController::class, 'destroy'])->name(
 //     $correo = new ContactUsMailable(); 
 //     Mail::to('jose.jdgo97@gmmail.com')->send($correo);
 //     return 'Mensaje enviado';
-// });
+// });     
 Route:: get('contactanos', [ContactUsController::class, 'index'])->name('contactanos.index');
 Route:: post('contactanos', [ContactUsController::class, 'store'])->name('contactanos.store');
