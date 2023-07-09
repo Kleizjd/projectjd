@@ -6,6 +6,22 @@
     <br>
 
     <div class="container-fluid">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb p-3 bg-body-tertiary rounded-3 justify-content-end">
+                <li class="breadcrumb-item">
+                    <a class="link-body-emphasis" href="/">
+                        <i class="fa-solid fa-house"></i>
+                        <span class="visually-hidden">Home</span>
+                    </a>
+                </li>
+                <li class="breadcrumb-item">
+                    <a class="link-body-emphasis fw-semibold text-decoration-none" href="#">Noticia</a>
+                </li>
+                <li class="breadcrumb-item active" aria-current="page">
+                    Data
+                </li>
+            </ol>
+        </nav>
         <div class="border flex-md-row mb-4 box-shadow h-md-250 pb-2">
 
             <div class="container-fluid">
@@ -53,21 +69,21 @@
                                     <div class="card-body">
                                         @if (Route::has('login'))
                                             {{-- <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block "> --}}
-                                                @auth
-                                                    <div class="input-group">
-                                                        <input type="text" class="form-control" name="comentario"
-                                                            id="comentario" placeholder="Realice un comentario"
-                                                            aria-label="Input group example" aria-describedby="btnGroupAddon">
-                                                        <div class="input-group-prepend ">
-                                                            <button class="btn btn-primary" id="btnGroupAddon" type="submit">
-                                                                <i class="far fa-paper-plane"></i>
-                                                            </button>
-                                                        </div>
+                                            @auth
+                                                <div class="input-group">
+                                                    <input type="text" class="form-control" name="comentario" id="comentario"
+                                                        placeholder="Realice un comentario" aria-label="Input group example"
+                                                        aria-describedby="btnGroupAddon">
+                                                    <div class="input-group-prepend ">
+                                                        <button class="btn btn-primary" id="btnGroupAddon" type="submit">
+                                                            <i class="far fa-paper-plane"></i>
+                                                        </button>
                                                     </div>
-                                                    <br>
-                                                @else
-                                                    <h2>Comentarios</h2>
-                                                @endauth
+                                                </div>
+                                                <br>
+                                            @else
+                                                <h2>Comentarios</h2>
+                                            @endauth
                                             {{-- </div> --}}
                                         @endif
 
@@ -121,28 +137,27 @@
                                                             aria-labelledby="flush-headingOne"
                                                             data-bs-parent="#accordionFlushExample">
                                                             {{-- <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block "> --}}
-                                                                @auth
-                                                                    <div class="input-group">
-                                                                        <input type="text" class="form-control"
-                                                                            name="comentario" id="comentario"
-                                                                            placeholder="Realice un comentario"
-                                                                            aria-label="Input group example"
-                                                                            aria-describedby="btnGroupAddon">
-                                                                        <div class="input-group-prepend ">
-                                                                            <button class="btn btn-primary" id="btnGroupAddon"
-                                                                                type="submit">
-                                                                                <i class="far fa-paper-plane"></i>
-                                                                            </button>
-                                                                        </div>
+                                                            @auth
+                                                                <div class="input-group">
+                                                                    <input type="text" class="form-control" name="comentario"
+                                                                        id="comentario" placeholder="Realice un comentario"
+                                                                        aria-label="Input group example"
+                                                                        aria-describedby="btnGroupAddon">
+                                                                    <div class="input-group-prepend ">
+                                                                        <button class="btn btn-primary" id="btnGroupAddon"
+                                                                            type="submit">
+                                                                            <i class="far fa-paper-plane"></i>
+                                                                        </button>
                                                                     </div>
-                                                                    <br>
-                                                                @else
-                                                                    <div class="accordion-body">Placeholder content for this
-                                                                        accordion, which is intended to demonstrate the
-                                                                        <code>.accordion-flush</code> class. This is the
-                                                                        first item's accordion body.
-                                                                    </div>
-                                                                @endauth
+                                                                </div>
+                                                                <br>
+                                                            @else
+                                                                <div class="accordion-body">Placeholder content for this
+                                                                    accordion, which is intended to demonstrate the
+                                                                    <code>.accordion-flush</code> class. This is the
+                                                                    first item's accordion body.
+                                                                </div>
+                                                            @endauth
                                                             {{-- </div> --}}
                                                         </div>
                                                     </div>

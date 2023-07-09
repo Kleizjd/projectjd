@@ -40,9 +40,10 @@ class NewResetPasswordNotification extends Notification
     public function toMail($notifiable)
     {
         return (new MailMessage)
-                    ->line('New First Line.')
+                    ->line('Estás recibiendo este correo electrónico porque hemos recibido una solicitud de restablecimiento de contraseña para tu cuenta.')
                     ->action('Reset', url('reset-password',$this->token))
-                    ->line('Last line!');
+                    ->line('Este enlace de restablecimiento de contraseña caducará en 60 minutos.!')
+                    ->line('Si no solicitó un restablecimiento de contraseña, no se requiere ninguna otra acción.');
     }
 
     /**

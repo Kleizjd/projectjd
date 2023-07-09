@@ -1,6 +1,6 @@
 <!-- Modal BUSCAR -->
 <div class="modal fade" id="modal-{{ $post->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg" role="document" style="max-width: 80%;">
+    <div class="modal-dialog modal-lg " role="document" style="max-width: 80%;">
 
         <div class="modal-content">
             <div class="text-center modal-header">
