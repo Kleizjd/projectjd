@@ -18,19 +18,10 @@ class PostController extends Controller
     public function template()
     {
         // $cant_post = 3;
-        // $posts = Post::select('posts.*')
-        // $posts = Post::select('*')
-        // ->join('images', 'posts.id', '=', 'images.imageable_id')
-        // ->where('imageable_type', '=', 'App\Models\Post')
-        // ->get(); //selecciona imagenes
-        $lastPostId = Post::max('id'); // Obtén el ID del último post obtenido en la consulta anterior
-        // dd($lastPostId); //
-        // dd($post);
-
         $posts = Post::select('*')
             ->join('images', 'posts.id', '=', 'images.imageable_id')
-            ->where('imageable_type', '=', 'App\Models\Post')
-            ->orderBy('posts.id', 'desc') // Aplica una condición para obtener solo los registros con un ID mayor que el último ID obtenido
+            ->where('imageable_type', '=', Post::class)
+            ->orderBy('posts.id', 'desc') // comienza desde el ultimo post
             ->get();
         // dd($posts);
 

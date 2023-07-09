@@ -7,6 +7,9 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-3 p-0">
+                <br>
+                <br>
+                <br>
                 <aside>
                     @if (Auth::check())
                         {{-- SIDEBAR --}}
@@ -16,6 +19,9 @@
                 </aside>
             </div>
             <div class="col-9">
+                <br>
+                <br>
+                <br>
                 <div class="card shadow-lg mt-2">
                     <div class="badge bg-dark card-header">
                         <div class="row">
@@ -56,102 +62,109 @@
 
                                     <div class="row">
                                         <div class="col-md-8">
-                                        <form action="{{ route('home') }}" method="POST" enctype="multipart/form-data">
-                                            <div class="row">
-                                                <div class="col-md-5 border-right">
-                                                    {{-- <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img
-                                                                class="rounded-circle mt-5" width="150px"
-                                                                src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg"><span
-                                                                class="font-weight-bold">Edogaru</span><span
-                                                                class="text-black-50">edogaru@mail.com.my</span><span> </span></div> --}}
-                                                    <label for="photo">
-                                                        @if (!empty(Auth::user()->image->url)) : ?>
-                                                        <div class="row">
-                                                            <div class="col-12">
-                                                                <div
-                                                                    class="d-flex flex-column align-items-center text-center p-3 py-5">
-                                                                    <img id="img_preview"
-                                                                        src="{{ asset(Auth::user()->image->url) }}" height="150px"
-                                                                        width="150px">
-                                                                    <span class="font-weight-bold">{{ Auth::user()->name }}'s
-                                                                        Profile</span>
-                                                                    <span class="text-black-50">{{ Auth::user()->email }}</span>
+                                            <form action="{{ route('home') }}" method="POST" enctype="multipart/form-data">
+                                                <div class="row">
+                                                    <div class="col-md-5 border-right">
+                                                        <label for="photo">
+                                                            @if (!empty(Auth::user()->image->url))
+                                                                : ?>
+                                                                <div class="row">
+                                                                    <div class="col-12">
+                                                                        <div
+                                                                            class="d-flex flex-column align-items-center text-center p-3 py-5">
+                                                                            <img id="img_preview"
+                                                                                src="{{ asset(Auth::user()->image->url) }}"
+                                                                                height="150px" width="150px">
+                                                                            <span
+                                                                                class="font-weight-bold">{{ Auth::user()->name }}'s
+                                                                                Profile</span>
+                                                                            <span
+                                                                                class="text-black-50">{{ Auth::user()->email }}</span>
+                                                                        </div>
+                                                                    </div>
                                                                 </div>
-                                                            </div>
-                                                        </div>
-                                                        @else
-                                                        <div class="row">
-                                                            <div class="col-12">
-                                                                <div
-                                                                    class="d-flex flex-column align-items-center text-center p-3 py-5">
-                                                                    <img id="img_preview"
-                                                                        src="{{ asset('images/users/user_profile.png') }}"
-                                                                        height="150px" width="150px">
-                                                                    <span class="font-weight-bold">{{ Auth::user()->name }}'s
-                                                                    </span>
-                                                                    <span class="text-black-50">{{ Auth::user()->email }}</span>
-        
+                                                            @else
+                                                                <div class="row">
+                                                                    <div class="col-12">
+                                                                        <div
+                                                                            class="d-flex flex-column align-items-center text-center p-3 py-5">
+                                                                            <img id="img_preview"
+                                                                                src="{{ asset('images/users/user_profile.png') }}"
+                                                                                height="150px" width="150px">
+                                                                            <span
+                                                                                class="font-weight-bold">{{ Auth::user()->name }}'s
+                                                                            </span>
+                                                                            <span
+                                                                                class="text-black-50">{{ Auth::user()->email }}</span>
+
+                                                                        </div>
+                                                                    </div>
                                                                 </div>
-                                                            </div>
-                                                        </div>
-        
+                                                        </label>
                                                         @endif
                                                         <input type="file" name="photo" id="photo" accept="image/*"
                                                             style="display: none;">
                                                         @error('photo')
                                                             <small class="text-danger">{{ $message }}</small>
                                                         @enderror
-                                                </div>
-                                                <div class="col-md-6 border-right">
-                                                    <div class="">
-                                                        <div class="d-flex justify-content-between align-items-center mb-3">
-                                                            <h4 class="text-right">Configuraciones de Perfil</h4>
-                                                        </div>
-                                                        <div class="row">
-                                                            <div class="col-md-12"><label class="labels">*Nombre</label><input
-                                                                    type="text" class="form-control" placeholder="nombre"
-                                                                    value="{{ Auth::user()->name }}" id="name" name="name">
+                                                    </div>
+                                                    <div class="col-md-6 border-right">
+                                                        <div class="">
+                                                            <div
+                                                                class="d-flex justify-content-between align-items-center mb-3">
+                                                                <h4 class="text-right">Configuraciones de Perfil</h4>
                                                             </div>
-                                                            {{-- <div class="col-md-6"><label class="labels">*Apellido</label><input
+                                                            <div class="row">
+                                                                <div class="col-md-12"><label
+                                                                        class="labels">*Nombre</label><input type="text"
+                                                                        class="form-control" placeholder="nombre"
+                                                                        value="{{ Auth::user()->name }}" id="name"
+                                                                        name="name">
+                                                                </div>
+                                                                {{-- <div class="col-md-6"><label class="labels">*Apellido</label><input
                                                                     type="text" class="form-control" value=""
                                                                     placeholder="apellido"></div> --}}
-                                                        </div>
-                                                        <div class="row">
-        
-                                                            <div class="col-md-12"><label class="labels">Correo</label><input
-                                                                    type="text" class="form-control"
-                                                                    placeholder="Ingresa tu correo"
-                                                                    value="{{ Auth::user()->email }}" id="email"
-                                                                    name="email"></div>
-                                                            <div class="col-md-12"><label class="labels">Telefono
-                                                                    celular</label><input type="text" class="form-control"
-                                                                    placeholder="ingrese su numero telefonico" value=""></div>
-                                                            <div class="col-md-12"><label
-                                                                    class="labels">Educaci&oacute;n</label><input type="text"
-                                                                    class="form-control" placeholder="educaci&oacute;n"
-                                                                    value="">
                                                             </div>
-                                                            <div class="col-md-12"><label
-                                                                    class="labels">Direcci&oacute;n</label><input type="text"
-                                                                    class="form-control" placeholder="direcci&oacute;n"
-                                                                    value=""></div>
                                                             <div class="row">
-                                                                <div class="col-md-6"><label class="labels">Ciudad</label><input
-                                                                        type="text" class="form-control" placeholder="ciudad"
+
+                                                                <div class="col-md-12"><label
+                                                                        class="labels">Correo</label><input type="text"
+                                                                        class="form-control" placeholder="Ingresa tu correo"
+                                                                        value="{{ Auth::user()->email }}" id="email"
+                                                                        name="email"></div>
+                                                                <div class="col-md-12"><label class="labels">Telefono
+                                                                        celular</label><input type="text"
+                                                                        class="form-control"
+                                                                        placeholder="ingrese su numero telefonico"
                                                                         value=""></div>
-                                                                <div class="col-md-6"><label
-                                                                        class="labels">Pa&iacute;s</label><input type="text"
-                                                                        class="form-control" placeholder="country"
-                                                                        value=""></div>
+                                                                <div class="col-md-12"><label
+                                                                        class="labels">Educaci&oacute;n</label><input
+                                                                        type="text" class="form-control"
+                                                                        placeholder="educaci&oacute;n" value="">
+                                                                </div>
+                                                                <div class="col-md-12"><label
+                                                                        class="labels">Direcci&oacute;n</label><input
+                                                                        type="text" class="form-control"
+                                                                        placeholder="direcci&oacute;n" value="">
+                                                                </div>
+                                                                <div class="row">
+                                                                    <div class="col-md-6"><label
+                                                                            class="labels">Ciudad</label><input
+                                                                            type="text" class="form-control"
+                                                                            placeholder="ciudad" value=""></div>
+                                                                    <div class="col-md-6"><label
+                                                                            class="labels">Pa&iacute;s</label><input
+                                                                            type="text" class="form-control"
+                                                                            placeholder="country" value=""></div>
+                                                                </div>
+                                                                <div class="mt-5 text-center"><button
+                                                                        class="btn btn-primary profile-button"
+                                                                        type="submit">Guardar</button></div>
                                                             </div>
-                                                            <div class="mt-5 text-center"><button
-                                                                    class="btn btn-primary profile-button"
-                                                                    type="submit">Guardar</button></div>
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                        </form>
+                                            </form>
                                         </div>
 
                                         <div class="col-md-4 p-3 py-5">
@@ -199,7 +212,8 @@
                                                         Usuario</i></button>
                                             </div>
 
-                                            <table id="tableSearchUser" class="table-bordered table-hover" width="100%">
+                                            <table id="tableSearchUser" class="table-bordered table-hover"
+                                                width="100%">
 
                                                 <thead id="table_usuarios"
                                                     class="table text-white bg-primary thead-primary">
@@ -236,7 +250,8 @@
                                                             <td>
                                                                 {{-- <form action="{{ route('user.edit', $user->id) }}" method="POST"> --}}
                                                                 {{-- href="/user/{{ $user->id }}/edit" --}}
-                                                                <button type="button" class="text-white btn btn-warning"><i
+                                                                <button type="button"
+                                                                    class="text-white btn btn-warning"><i
                                                                         class="fa fa-edit"></i></button>
 
                                                                 @csrf
