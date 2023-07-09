@@ -71,7 +71,6 @@ return [
 
     'links' => [
         public_path('storage') => storage_path('app/public'),
-        // public_path('custom') => storage_path('Springfield_laravel/public/images'),
     ],
 
 ];
