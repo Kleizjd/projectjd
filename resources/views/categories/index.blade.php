@@ -14,6 +14,9 @@
     <div class="container-fluid ">
         <div class="row">
             <div class="col-3 p-0">
+                <br>
+                <br>
+                <br>
                 @if (Auth::check())
                     {{-- SIDEBAR --}}
                     @include('components.sidebar')
@@ -22,7 +25,9 @@
             </div>
 
             <div class="col-9">
-
+<br>
+<br>
+<br>
                 <form action="{{ route('categories') }}" method="POST">
                     @csrf
                     @if (session('success'))
@@ -32,7 +37,7 @@
                         <h6 class="alert alert-danger">{{ $message }}</h6>
                     @enderror
 
-                    <div class="card">
+                    <div class="card shadow-lg mt-2">
                         <div class="card-header">
                             <label for="name" class="form-label">Nueva categoria </label>
                         </div>

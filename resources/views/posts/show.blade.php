@@ -1,18 +1,13 @@
 @extends('layouts.app')
 @section('content')
-<br>
-<br>
-<br>
+    <br>
+    <br>
+    <br>
+    <br>
 
     <div class="container-fluid">
-        <div class="row">
-            {{-- <div class="col-3 p-0">
-                @if (Auth::check())
-                    @include('components.sidebar')
-                @endif
-            </div> --}}
+        <div class="border flex-md-row mb-4 box-shadow h-md-250 pb-2">
 
-            {{-- <div class="col-9"> --}}
             <div class="container-fluid">
                 <div class="row page-titles">
                     <div class="col-md-5 align-self-center">
@@ -37,7 +32,7 @@
                         <br>
 
                     </div>
-                    <div class="col-lg-4 col-xlg-4 col-md-4 ">
+                    <div class="col-lg-4 col-xlg-4 col-md-4">
                         <div class="row">
                             <div class="col-12">
                                 <ul class="list-inline">
@@ -57,7 +52,7 @@
 
                                     <div class="card-body">
                                         @if (Route::has('login'))
-                                            <div class="">
+                                            {{-- <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block "> --}}
                                                 @auth
                                                     <div class="input-group">
                                                         <input type="text" class="form-control" name="comentario"
@@ -73,7 +68,7 @@
                                                 @else
                                                     <h2>Comentarios</h2>
                                                 @endauth
-                                            </div>
+                                            {{-- </div> --}}
                                         @endif
 
                                         <div class="sl-item">
@@ -125,11 +120,30 @@
                                                         <div id="flush-collapseOne" class="accordion-collapse collapse"
                                                             aria-labelledby="flush-headingOne"
                                                             data-bs-parent="#accordionFlushExample">
-                                                            <div class="accordion-body">Placeholder content for this
-                                                                accordion, which is intended to demonstrate the
-                                                                <code>.accordion-flush</code> class. This is the
-                                                                first item's accordion body.
-                                                            </div>
+                                                            {{-- <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block "> --}}
+                                                                @auth
+                                                                    <div class="input-group">
+                                                                        <input type="text" class="form-control"
+                                                                            name="comentario" id="comentario"
+                                                                            placeholder="Realice un comentario"
+                                                                            aria-label="Input group example"
+                                                                            aria-describedby="btnGroupAddon">
+                                                                        <div class="input-group-prepend ">
+                                                                            <button class="btn btn-primary" id="btnGroupAddon"
+                                                                                type="submit">
+                                                                                <i class="far fa-paper-plane"></i>
+                                                                            </button>
+                                                                        </div>
+                                                                    </div>
+                                                                    <br>
+                                                                @else
+                                                                    <div class="accordion-body">Placeholder content for this
+                                                                        accordion, which is intended to demonstrate the
+                                                                        <code>.accordion-flush</code> class. This is the
+                                                                        first item's accordion body.
+                                                                    </div>
+                                                                @endauth
+                                                            {{-- </div> --}}
                                                         </div>
                                                     </div>
                                                 </div>
@@ -145,10 +159,8 @@
                                                     <span class="sl-date">5 minutes ago</span>
                                                 </div>
                                                 <div class="sl-right">
-
                                                     <div>
                                                         <p>Ando desarrollando</p>
-
                                                     </div>
                                                 </div>
                                             </div>
@@ -158,11 +170,8 @@
                                 </div>
                             </div>
                         </div>
-
-
                     </div>
                 </div>
-                {{-- </div> --}}
             </div>
         </div>
     </div>

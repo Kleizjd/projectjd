@@ -19,11 +19,20 @@ class PostController extends Controller
     {
         // $cant_post = 3;
         // $posts = Post::select('posts.*')
+        // $posts = Post::select('*')
+        // ->join('images', 'posts.id', '=', 'images.imageable_id')
+        // ->where('imageable_type', '=', 'App\Models\Post')
+        // ->get(); //selecciona imagenes
+        $lastPostId = Post::max('id'); // Obtén el ID del último post obtenido en la consulta anterior
+        // dd($lastPostId); //
+        // dd($post);
+
         $posts = Post::select('*')
-        ->join('images', 'posts.id', '=', 'images.imageable_id')
-        ->where('imageable_type', '=', 'App\Models\Post')
-        // ->orderBy('posts.created_at', 'desc')
-        ->get(); //selecciona imagenes
+            ->join('images', 'posts.id', '=', 'images.imageable_id')
+            ->where('imageable_type', '=', 'App\Models\Post')
+            ->orderBy('posts.id', 'desc') // Aplica una condición para obtener solo los registros con un ID mayor que el último ID obtenido
+            ->get();
+        // dd($posts);
 
         return view('welcome', compact('posts'));
     }

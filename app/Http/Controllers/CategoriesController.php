@@ -11,7 +11,7 @@ class CategoriesController extends Controller
     public function index()
     {
         $categories = Category::all();
-        return view('categories.index',['categories'=>$categories]);
+        return view('categories.index',compact('categories'));
     }
 
   
@@ -25,6 +25,7 @@ class CategoriesController extends Controller
         $request->validate(['name'=> 'required|max:255']);
         $category = new Category();
         $category->name=$request->name;
+        $category->slug=$request->name;
         $category->save();
         return redirect()->route('categories')->with('success', 'Category Created succesfully');
     }

@@ -44,6 +44,9 @@
     
     <div class="row">
       <div class="col-md-3 p-0">
+        <br>
+        <br>
+        <br>
         @if (Auth::check())
         {{-- SIDEBAR --}}
         @include('components.sidebar')
@@ -51,6 +54,10 @@
         @endif
       </div>
       <div class="col-md-9">
+        <br>
+        <br>
+        <br>
+        <br>
         <div class="container-fluid">
           <div class="card text-center shadow-lg mt-2">
               <div class="card-header">
