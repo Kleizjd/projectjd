@@ -27,7 +27,7 @@
                 <br>
                 <br>
                 <br>
-                <form action="{{ route('categories') }}" method="POST">
+                <form action="{{ route('categories.store') }}" method="POST">
                     @csrf
                     @if (session('success'))
                         <h6 class="alert alert-success">{{ session('success') }}</h6>
@@ -50,7 +50,7 @@
                     <div class="row py-1">
                         <div class="col-md-9 d-flex align-items-center">
                             <a class="d-flex align-items-center gap-2"
-                                href="{{ route('categories-edit', ['id' => $category->id]) }}">
+                                href="{{ route('categories.show', $category->id) }}">
                                 <span class="color-container" style="background-color: {{ $category->color }}"></span>
                             </a>
                             {{ $category->name }}
@@ -81,7 +81,7 @@
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                    <form action="{{ route('categories-destroy', ['id' => $category->id]) }}"
+                                    <form action="{{ route('categories.destroy', $category->id) }}"
                                         method="POST">
                                         @method('DELETE')
                                         @csrf

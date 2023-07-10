@@ -60,7 +60,7 @@
 
                                     <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                                         <div class="d-flex no-block align-items-center p-15 bg-dark text-white m-b-10">
-                                            <a href="{{ route('settings') }}">
+                                            <a href="{{ route('settings.index') }}">
                                                 @if (!empty(Auth::user()->photo))
                                                     <img src="{{ asset(Auth::user()->photo) }}" id="perfil2"
                                                         alt="user" class="img-circle" width="60">

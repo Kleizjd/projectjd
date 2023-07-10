@@ -21,7 +21,18 @@ class HomeController extends Controller
     {
         $this->middleware('auth');
     }
+    public function template()
+    {
+        // $cant_post = 3;
+        $posts = Post::select('*')
+            ->join('images', 'posts.id', '=', 'images.imageable_id')
+            ->where('imageable_type', '=', Post::class)
+            ->orderBy('posts.id', 'desc') // comienza desde el ultimo post
+            ->get();
+        // dd($posts);
 
+        return view('welcome', compact('posts'));
+    }
     public function index()
     {
         $posts = Post::select('posts.*')

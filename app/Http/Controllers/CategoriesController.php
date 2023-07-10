@@ -27,7 +27,7 @@ class CategoriesController extends Controller
         $category->name=$request->name;
         $category->slug=$request->name;
         $category->save();
-        return redirect()->route('categories')->with('success', 'Category Created succesfully');
+        return redirect()->route('categories.index')->with('success', 'Category Created succesfully');
     }
 
 

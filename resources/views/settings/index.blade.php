@@ -62,7 +62,7 @@
 
                                     <div class="row">
                                         <div class="col-md-8">
-                                            <form action="{{ route('home') }}" method="POST" enctype="multipart/form-data">
+                                            <form action="{{ route('home.store') }}" method="POST" enctype="multipart/form-data">
                                                 <div class="row">
                                                     <div class="col-md-5 border-right">
                                                         <label for="photo">
@@ -168,7 +168,7 @@
                                         </div>
 
                                         <div class="col-md-4 p-3 py-5">
-                                            <form action="{{ route('password-update') }}" method="POST">
+                                            <form action="{{ route('password.update') }}" method="POST">
                                                 @csrf
                                                 @if (session('error'))
                                                     <div class="alert alert-danger" role="alert">

@@ -10,15 +10,15 @@
 
   <ul class="list-group">
       <li class="list-group-item">
-        <a class="nav-link active" href="{{ route('home') }}">
+        <a class="nav-link active" href="{{ url('/home') }}">
         <i class="fas fa-home"></i>Home - Dashboard</a></li>
       <li class="list-group-item">
-        <a class="nav-link active" href="{{ route('post') }}">
+        <a class="nav-link active" href="{{ route('posts.index') }}">
              Noticias
         </a>
       </li>
       <li class="list-group-item">
-        <a class="nav-link" href="{{ route('categories') }}">
+        <a class="nav-link" href="{{ route('categories.index') }}">
           Categories
         </a>
       </li>

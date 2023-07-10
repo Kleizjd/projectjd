@@ -86,6 +86,6 @@ class PostController extends Controller
 
         Image::create(['url' => $url,'imageable_id' => $imagen_id,'imageable_type' => Post::class]);
 
-        return redirect()->route('post')->with('success', 'New Created succesfully');
+        return redirect()->route('posts.index')->with('success', 'New Created succesfully');
     }
 }
