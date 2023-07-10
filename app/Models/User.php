@@ -13,7 +13,8 @@ use Laravel\Sanctum\HasApiTokens;
 class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
-    public $token;
+    //EDITA VISTA REESTABLECER CONTRASENA
+    // public $token;
     public function sendPasswordResetNotification($token){
         $this->notify(new NewResetPasswordNotification($token));
     }

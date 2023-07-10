@@ -6,24 +6,24 @@
     <br>
 
     <div class="container-fluid">
-        <nav aria-label="breadcrumb">
-            <ol class="breadcrumb p-3 bg-body-tertiary rounded-3 justify-content-end">
-                <li class="breadcrumb-item">
-                    <a class="link-body-emphasis" href="/">
-                        <i class="fa-solid fa-house"></i>
-                        <span class="visually-hidden">Home</span>
-                    </a>
-                </li>
-                <li class="breadcrumb-item">
-                    <a class="link-body-emphasis fw-semibold text-decoration-none" href="#">Noticia</a>
-                </li>
-                <li class="breadcrumb-item active" aria-current="page">
-                    Data
-                </li>
-            </ol>
-        </nav>
-        <div class="border flex-md-row mb-4 box-shadow h-md-250 pb-2">
 
+        <div class="border flex-md-row mb-4 box-shadow h-md-250 pb-2">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb p-2 bg-body-tertiary justify-content-end border-bottom">
+                    <li class="breadcrumb-item">
+                        <a class="link-body-emphasis" href="/">
+                            <i class="fa-solid fa-house"></i>
+                            <span class="visually-hidden">Home</span>
+                        </a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a class="link-body-emphasis fw-semibold text-decoration-none" href="#">Noticia</a>
+                    </li>
+                    {{-- <li class="breadcrumb-item active" aria-current="page">
+                        Data
+                    </li> --}}
+                </ol>
+            </nav>
             <div class="container-fluid">
                 <div class="row page-titles">
                     <div class="col-md-5 align-self-center">
